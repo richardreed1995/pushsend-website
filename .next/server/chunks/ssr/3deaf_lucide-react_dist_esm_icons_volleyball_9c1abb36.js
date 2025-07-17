@@ -1,0 +1,72 @@
+module.exports = {
+
+"[project]/node_modules/.pnpm/lucide-react@0.525.0_react@19.1.0/node_modules/lucide-react/dist/esm/icons/volleyball.js [app-ssr] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname } = __turbopack_context__;
+{
+/**
+ * @license lucide-react v0.525.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */ __turbopack_context__.s({
+    "__iconNode": (()=>__iconNode),
+    "default": (()=>Volleyball)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$lucide$2d$react$40$0$2e$525$2e$0_react$40$19$2e$1$2e$0$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/lucide-react@0.525.0_react@19.1.0/node_modules/lucide-react/dist/esm/createLucideIcon.js [app-ssr] (ecmascript)");
+;
+const __iconNode = [
+    [
+        "path",
+        {
+            d: "M11.1 7.1a16.55 16.55 0 0 1 10.9 4",
+            key: "2880wi"
+        }
+    ],
+    [
+        "path",
+        {
+            d: "M12 12a12.6 12.6 0 0 1-8.7 5",
+            key: "113sja"
+        }
+    ],
+    [
+        "path",
+        {
+            d: "M16.8 13.6a16.55 16.55 0 0 1-9 7.5",
+            key: "1qmsgl"
+        }
+    ],
+    [
+        "path",
+        {
+            d: "M20.7 17a12.8 12.8 0 0 0-8.7-5 13.3 13.3 0 0 1 0-10",
+            key: "1bmeqp"
+        }
+    ],
+    [
+        "path",
+        {
+            d: "M6.3 3.8a16.55 16.55 0 0 0 1.9 11.5",
+            key: "iekzv9"
+        }
+    ],
+    [
+        "circle",
+        {
+            cx: "12",
+            cy: "12",
+            r: "10",
+            key: "1mglay"
+        }
+    ]
+];
+const Volleyball = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$lucide$2d$react$40$0$2e$525$2e$0_react$40$19$2e$1$2e$0$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$createLucideIcon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])("volleyball", __iconNode);
+;
+ //# sourceMappingURL=volleyball.js.map
+}}),
+
+};
+
+//# sourceMappingURL=3deaf_lucide-react_dist_esm_icons_volleyball_9c1abb36.js.map
