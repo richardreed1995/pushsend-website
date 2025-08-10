@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 6, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
-    {"offset": {"line": 24, "column": 0}, "map": {"version":3,"sources":["file:///Users/richardreed/Sendlead/src/app/blog/page.tsx"],"sourcesContent":["import Link from 'next/link';\n\nexport default function BlogList() {\n  return (\n    <div style={{ background: '#fff', color: '#000', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>\n      <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '2rem', textAlign: 'center' }}>Blog</h1>\n      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', width: '100%', maxWidth: 600 }}>\n        <Link href=\"/blog/test-blog\" style={{ fontSize: '1.25rem', textAlign: 'center', textDecoration: 'underline', color: '#000' }}>\n          Test Blog\n        </Link>\n      </div>\n    </div>\n  );\n} "],"names":[],"mappings":";;;;AAAA;;;AAEe,SAAS;IACtB,qBACE,6WAAC;QAAI,OAAO;YAAE,YAAY;YAAQ,OAAO;YAAQ,WAAW;YAAS,SAAS;YAAQ,eAAe;YAAU,YAAY;YAAU,gBAAgB;QAAS;;0BAC5J,6WAAC;gBAAG,OAAO;oBAAE,UAAU;oBAAU,YAAY;oBAAQ,cAAc;oBAAQ,WAAW;gBAAS;0BAAG;;;;;;0BAClG,6WAAC;gBAAI,OAAO;oBAAE,SAAS;oBAAQ,eAAe;oBAAU,KAAK;oBAAU,OAAO;oBAAQ,UAAU;gBAAI;0BAClG,cAAA,6WAAC,2RAAA,CAAA,UAAI;oBAAC,MAAK;oBAAkB,OAAO;wBAAE,UAAU;wBAAW,WAAW;wBAAU,gBAAgB;wBAAa,OAAO;oBAAO;8BAAG;;;;;;;;;;;;;;;;;AAMtI","debugId":null}}]
-}

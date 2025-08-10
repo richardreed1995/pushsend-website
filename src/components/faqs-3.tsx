@@ -1,4 +1,6 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
+"use client";
+
+import { useState } from "react";
 import { DynamicIcon, type IconName } from 'lucide-react/dynamic'
 import Link from 'next/link'
 
@@ -10,68 +12,68 @@ type FAQItem = {
 }
 
 export default function FAQsThree() {
+    const [openItem, setOpenItem] = useState<string | null>(null);
+
     const faqItems: FAQItem[] = [
         {
             id: 'item-1',
             icon: 'shield-check',
-            question: 'Are leads completely exclusive to my business?',
-            answer: 'Yes, absolutely. Each lead is exclusively yours and never shared with competing businesses in your sector.',
+            question: 'Will this work for my business?',
+            answer: 'We can\'t answer this without reviewing your business - that\'s part of our discovery process. We\'ll give you some honest insight into whether this could work for you. We turn down around 40% of the applications we receive to ensure we only work with businesses where we can deliver results.',
         },
         {
             id: 'item-2',
             icon: 'users',
-            question: 'What sets you apart from other providers?',
-            answer: "We're your growth partner, not just a lead source. We provide sales nurturing support (at no additional cost) and a 24 step lead nurturing process if your team is missing important systems such as email follow-up flows, SMS followups, and other sales processes.",
+            question: 'How much work will I need to put in?',
+            answer: 'Very minimal input on your side - we handle basically everything. We generate the leads and support you in closing them, putting systems in place to follow up with all leads we generate. You\'ll provide some initial information about your business and target market, then we take care of the rest. You\'ll receive regular updates and reports, but the heavy lifting is done by our team.',
         },
         {
             id: 'item-3',
-            icon: 'clock',
-            question: 'How quickly will I receive leads after signing up?',
-            answer: "Leads are delivered instantly to your CRM the moment they're qualified. Setup typically takes 24-48 hours after contract signing.",
+            icon: 'trending-up',
+            question: 'What\'s the ROI I can expect?',
+            answer: 'Clients typically receive their first qualified conversations within the first couple of weeks of launch. The ROI will depend on your investment, but most businesses run a positive ROI from the first campaign we launch.',
         },
         {
             id: 'item-4',
-            icon: 'brain-circuit',
-            question: 'How do you qualify these leads?',
-            answer: "Our proprietary machine learning system qualifies leads across 14+ data points. We continue to qualify after we’ve generated the lead to provide additional context to your sales team (at no cost).",
+            icon: 'message-square',
+            question: 'How do you ensure your emails don\'t sound AI-generated?',
+            answer: 'We use AI carefully with constrained variables - we don\'t let AI write whole emails. We write the emails ourselves and then use AI for specific bits to personalise them. Our team crafts messages that sound like they come from a real person who has done their homework.',
         },
         {
             id: 'item-5',
-            icon: 'globe',
-            question: 'How do you acquire the leads?',
-            answer: 'We generate leads across Meta, Google Ads, Native, and Organic.',
+            icon: 'clock',
+            question: 'How quickly can you generate leads?',
+            answer: 'We typically start seeing responses within 1-2 weeks of launching a campaign. The first qualified meetings usually come in within 2-3 weeks. We optimise campaigns continuously based on performance data to improve results over time.',
         },
         {
             id: 'item-6',
-            icon: 'pound-sterling',
-            question: 'How is pricing structured?',
-            answer: 'We charge a flat rate of £100 per lead.',
+            icon: 'bar-chart',
+            question: 'How much visibility will I have into this?',
+            answer: 'Complete transparency. You\'ll receive weekly reports with detailed metrics including open rates, reply rates, meeting bookings, and campaign performance. You\'ll also get notifications for every email response and meeting booking in real-time.',
         },
         {
             id: 'item-7',
-            icon: 'alert-triangle',
-            question: 'Is there a minimum purchase requirement?',
-            answer: 'We require a minimum order of £5,000 worth of leads. After that, you can adjust volume, modify targeting criteria, or pause campaigns at any time.',
+            icon: 'pound-sterling',
+            question: 'What does this cost?',
+            answer: 'We typically have a pilot period for working together, and then we look to implement a long-term growth strategy. Investment varies based on campaign scope and volume targets. Book a call to discuss pricing for your specific requirements.',
         },
         {
             id: 'item-8',
-            icon: 'check-circle',
-            question: 'Do you guarantee valid leads?',
-            answer: 'We verify all phone numbers using OTP and replace any invalid leads that have fake information.',
+            icon: 'globe',
+            question: 'What industries do you work with?',
+            answer: 'We work with B2B companies across SaaS, professional services, financial services, technology, and consulting. The key requirement is that you have a high-value offering (typically £5k+ average contract value) and a clear value proposition.',
         },
         {
             id: 'item-9',
-            icon: 'lock',
-            question: 'Are you compliant with data privacy regulations?',
-            answer: 'Our enterprise-grade lead distribution software ensures full compliance with GDPR, ICO guidelines, and industry-specific regulations including FCA requirements for financial services and healthcare compliance standards.',
-        },
-        {
-            id: 'item-10',
             icon: 'arrow-right-circle',
             question: 'What are the next steps to get started?',
-            answer: "Complete our simple application form to see if you qualify. Once submitted, we'll schedule a brief call to address any questions and then begin the intake process.",
+            answer: 'Schedule a consultation call with our team. We\'ll discuss your business, target market, and goals to see if we\'re a good fit. If we are, we\'ll create a proposal outlining our approach and expected results for your specific situation.',
         },
     ]
+
+    const toggleItem = (itemId: string) => {
+        setOpenItem(openItem === itemId ? null : itemId);
+    };
 
     return (
         <section className="bg-muted dark:bg-background py-20">
@@ -79,46 +81,54 @@ export default function FAQsThree() {
                 <div className="flex flex-col gap-10 md:flex-row md:gap-16">
                     <div className="md:w-1/3">
                         <div className="sticky top-20">
-                            <h2 className="mt-4 text-3xl font-bold">Frequently Asked Questions</h2>
+                            <h2 className="mt-4 text-3xl font-bold">FAQs</h2>
                             <p className="text-muted-foreground mt-4">
-                                Can't find what you're looking for? Contact our{' '}
-                                <Link
-                                    href="#"
-                                    className="text-primary font-medium hover:underline">
-                                    customer support team
-                                </Link>
+                                Commonly asked questions
                             </p>
                         </div>
                     </div>
                     <div className="md:w-2/3">
-                        <Accordion
-                            type="single"
-                            collapsible
-                            className="w-full space-y-2">
-                            {faqItems.map((item) => (
-                                <AccordionItem
-                                    key={item.id}
-                                    value={item.id}
-                                    className="bg-background shadow-xs rounded-lg border px-4 last:border-b">
-                                    <AccordionTrigger className="cursor-pointer items-center py-5 hover:no-underline">
-                                        <div className="flex items-center gap-3">
-                                            <div className="flex size-6">
-                                                <DynamicIcon
-                                                    name={item.icon}
-                                                    className="m-auto size-4"
-                                                />
+                        <div className="w-full space-y-2">
+                            {faqItems.map((item) => {
+                                const isOpen = openItem === item.id;
+                                return (
+                                    <div
+                                        key={item.id}
+                                        className="bg-background shadow-xs rounded-lg border px-4 last:border-b hover:bg-gray-50 transition-colors cursor-pointer"
+                                        onClick={() => toggleItem(item.id)}
+                                    >
+                                        <div className="flex items-center justify-between w-full py-5">
+                                            <div className="flex items-center gap-3">
+                                                <div className="flex size-6">
+                                                    <DynamicIcon
+                                                        name={item.icon}
+                                                        className="m-auto size-4"
+                                                    />
+                                                </div>
+                                                <span className="text-base">{item.question}</span>
                                             </div>
-                                            <span className="text-base">{item.question}</span>
+                                            <div className="flex items-center">
+                                                <svg
+                                                    className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    viewBox="0 0 24 24"
+                                                >
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </div>
                                         </div>
-                                    </AccordionTrigger>
-                                    <AccordionContent className="pb-5">
-                                        <div className="px-9">
-                                            <p className="text-sm text-zinc-600 dark:text-zinc-300">{item.answer}</p>
-                                        </div>
-                                    </AccordionContent>
-                                </AccordionItem>
-                            ))}
-                        </Accordion>
+                                        {isOpen && (
+                                            <div className="pb-5">
+                                                <div className="px-9">
+                                                    <p className="text-sm text-zinc-600 dark:text-zinc-300">{item.answer}</p>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                );
+                            })}
+                        </div>
                     </div>
                 </div>
             </div>

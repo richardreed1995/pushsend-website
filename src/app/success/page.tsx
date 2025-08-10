@@ -3,8 +3,7 @@
 import { useEffect } from "react"
 import { CalendlyWidget } from "@/components/calendly-widget"
 import { trackEvent } from "@/components/meta-pixel-events"
-import { ArrowLeft } from "lucide-react"
-import Link from "next/link"
+import { Logo } from "@/components/logo"
 
 export default function SuccessPage() {
   useEffect(() => {
@@ -14,21 +13,20 @@ export default function SuccessPage() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      {/* Header */}
-      <header className="bg-black text-white py-4 px-4">
-        <Link href="/" className="max-w-2xl mx-auto flex items-center relative">
-          <ArrowLeft className="h-5 w-5 absolute left-0" />
-          <h1 className="text-2xl font-black flex-grow text-center">Sendlead</h1>
-        </Link>
+      {/* Header with Logo */}
+      <header className="py-6 px-4">
+        <div className="max-w-2xl mx-auto flex justify-center">
+          <Logo />
+        </div>
       </header>
 
       <div className="text-center py-8 px-4">
         <h1 className="text-3xl font-black text-gray-900 mb-4">Application Submitted Successfully!</h1>
-        <p className="text-gray-600 mb-2 max-w-2xl mx-auto">
-          Thank you for your interest in Sendlead. Let's schedule a strategy call to discuss your specific needs.
+        <p className="text-lg text-gray-600 mb-8 text-center">
+          Thank you for your interest in PushSend. Let's schedule a strategy call to discuss your specific needs.
         </p>
         <br></br>
-        <p className="text-gray-500 text-sm mb-8">Please wait 5 seconds for the calendar to load below.</p>
+        <p className="text-gray-500 text-sm">Please wait 5 seconds for the calendar to load below.</p>
       </div>
 
       <div className="px-4 flex-1">

@@ -7,14 +7,29 @@ const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: '
 
 const posts = [
   {
-    slug: 'parlance-ai-agent',
-    title: 'SendLead Launches Parlance: The AI Agent That Triples Your Appointment Bookings',
-    category: 'Product',
-    date: today,
-    image: '/parlance.png',
-    excerpt: 'Meet Parlance, the AI agent that books 3x more appointments by automating lead nurturing, qualification, and scheduling for your business.'
+    slug: 'ai-outbound-messages',
+    title: 'How to Use AI in Your Outbound Messages',
+    category: 'Guide',
+    date: '19 Nov, 2024',
+    image: '/gradii-1920x1080 (15).png',
+    excerpt: 'As an agency sending over thousands of cold emails monthly, we\'ve developed a robust framework for using AI to generate effective, personalised messages.'
   },
-  // Add more posts here as needed
+  {
+    slug: 'hire-lead-generation-agency',
+    title: 'How to Hire a Lead Generation Agency',
+    category: 'Guide',
+    date: '20 Nov, 2024',
+    image: '/gradii-1920x1080 (16).png',
+    excerpt: 'I wanted to share some insights on how to make an informed decision when hiring a lead generation agency. Many people approach this with unrealistic expectations.'
+  },
+  {
+    slug: 'cold-email-infrastructure',
+    title: 'How to Setup Cold Email Infrastructure',
+    category: 'Guide',
+    date: '21 Nov, 2024',
+    image: '/gradii-1920x1080 (17).png',
+    excerpt: 'As someone who has spent thousands of hours perfecting email infrastructure, I can tell you that even the world\'s best cold email is worthless if it never reaches the recipient\'s primary inbox.'
+  }
 ];
 
 export default function BlogList() {
@@ -36,13 +51,6 @@ export default function BlogList() {
               </div>
             </Link>
           ))}
-        </div>
-        {/* Pagination (static example) */}
-        <div className="flex justify-center gap-2">
-          <button className="px-4 py-2 rounded bg-gray-100 text-gray-700 hover:bg-gray-200" disabled>Previous</button>
-          <button className="px-4 py-2 rounded bg-gray-900 text-white hover:bg-gray-700">1</button>
-          <button className="px-4 py-2 rounded bg-gray-100 text-gray-700 hover:bg-gray-200">2</button>
-          <button className="px-4 py-2 rounded bg-gray-100 text-gray-700 hover:bg-gray-200">Next</button>
         </div>
       </main>
       <FooterSection />

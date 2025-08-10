@@ -1,81 +1,76 @@
 "use client";
 
-import { BarChart3, Target, ShieldCheck } from 'lucide-react';
+import { BarChart3, Target, ShieldCheck, Users, Mail, TrendingUp, Settings } from 'lucide-react';
 import React from 'react';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '../../card';
 
 const methodologyCards = [
   {
-    icon: <BarChart3 className="size-7 text-zinc-300" />, // Conversion Optimisation
-    title: 'Conversion Optimisation',
+    icon: <Mail className="size-7 text-zinc-300" />,
+    title: 'Enterprise deliverability',
     description:
-      "We don't stop at lead generation—we implement complete sales systems including email follow-up flows, SMS sequences, and nurturing processes to maximise your close rates. This ensures leads convert faster and at higher rates than traditional lead-only approaches.",
+      'We believe infrastructure determines outcomes. We build dedicated outbound systems with properly warmed inboxes, premium domains, and diversified sending patterns. Our infrastructure ensures consistent inbox placement, because the best message means nothing if it lands in spam.',
   },
   {
-    icon: <Target className="size-7 text-zinc-300" />, // Revenue Attribution
-    title: 'Revenue Attribution',
+    icon: <Target className="size-7 text-zinc-300" />,
+    title: 'Smart targeting',
     description:
-      'Our system tracks the complete customer journey from lead to revenue, allowing us to identify which lead characteristics correlate with highest lifetime value. We then optimise targeting to prioritise prospects with the greatest revenue potential, not just volume.',
+      'We believe volume drives results when paired with intelligent targeting. We combine multiple data sources to identify the right stakeholders at scale. We test fast to find prospects who want to have sales conversations, then scale this across your total addressable market.',
   },
   {
-    icon: <ShieldCheck className="size-7 text-zinc-300" />, // Brand Consistency
-    title: 'Brand Consistency',
+    icon: <Settings className="size-7 text-zinc-300" />,
+    title: 'Structured process',
     description:
-      'We create fully branded funnels that match your business identity, ensuring prospects experience seamless brand consistency from their first click through to closing. This maintains trust and professionalism throughout the entire customer journey, unlike generic lead forms that disconnect prospects from your brand.',
+      'We believe simplicity scales. We focus on sending the right email, to the right person, at the right time. We use AI in a closely constrained way to add context and personalisation to every message.',
   },
   {
-    icon: <BarChart3 className="size-7 text-zinc-300" />, // Real-time Verification
-    title: 'Real-time Verification',
+    icon: <Users className="size-7 text-zinc-300" />,
+    title: 'Growth experts',
     description:
-      'We verify email and phone numbers in real-time using OTP (One-Time Password) verification, whilst monitoring lead quality through comprehensive tracking metrics. Our 14+ point qualification system ensures consistent lead standards, and we provide transparent performance statistics to prove ROI.',
+      'We believe in representing your brand at its best. We shine light on problems prospects didn\'t know existed, providing insights upfront. Every conversation we generate is with genuinely interested prospects, enhancing your reputation whilst your sales team enjoys higher close rates.',
   },
 ];
 
 const steps = [
   {
-    title: 'Financial + ROI Modelling',
+    title: 'Onboarding',
     description:
-      'We analyse your business and provide an ROI model for working with us based on industry benchmarks.',
+      'After signing our proposal, we\'ll have you fill out an onboarding form so we can understand more about you and your business.',
   },
   {
-    title: 'Build Branded Assets',
+    title: 'Kick off call',
     description:
-      'We build a branded funnel for you that maintains consistency with your brand identity.',
+      'Our account managers will go over your onboarding form on a call with you to formulate an initial campaign strategy.',
   },
   {
-    title: 'Qualification',
+    title: 'Infrastructure',
     description:
-      'We adjust our AI-powered qualification funnels to meet your specific needs and requirements.',
+      'We\'ll take all the information from the kick-off call to set up your inboxes, build you lead list, and write your campaigns.',
   },
   {
-    title: 'Follow-up',
+    title: 'Strategy',
     description:
-      'We implement our 24-step multi-touch lead nurturing sequence to increase close rates.',
+      'We\'ll outline a GTM strategy which outlines the campaigns we\'ll run to which audiences in priority order.',
   },
   {
-    title: 'Multi-Channel Integration',
+    title: 'Launch',
     description:
-      'We integrate your funnels into our multi-channel campaigns for maximum reach and effectiveness.',
+      'After the GTM strategy and initial campaign has been signed off, our team will launch your campaign to that audience.',
   },
   {
-    title: 'Quality Assurance at Scale',
+    title: 'Scale',
     description:
-      'We monitor prospect quality continuously with automatic replacement protocols for invalid or low-quality leads.',
-  },
-  {
-    title: 'Performance Analytics + Reporting',
-    description:
-      'We track conversion rates, ROI, and prospect quality with detailed attribution reporting and optimisation recommendations.',
+      'You\'ll receive notifications of email responses, a weekly report of campaign stats, and a monthly call to check in on your progress.',
   },
 ];
 
 export default function Methodology() {
   return (
-    <section id="methodology" className="py-12 md:py-20 bg-zinc-900 text-white scroll-mt-24">
+    <section id="process" className="py-12 md:py-20 bg-zinc-900 text-white scroll-mt-24">
       <div className="mx-auto max-w-5xl px-6 space-y-16">
         <div className="mx-auto max-w-xl text-center space-y-4">
           <h2 className="text-balance text-4xl font-medium lg:text-5xl mb-4">Our Methodology</h2>
-          <p className="text-zinc-300 text-lg">We focus on metrics beyond leads, such as CLTV, ROI, and revenue. We experiment, yes — but we do it like scientists. Precise, focused, and curious.
+          <p className="text-zinc-300 text-lg">Discover our approach to creating outbound results at scale.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2">

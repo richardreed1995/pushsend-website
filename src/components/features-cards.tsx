@@ -34,9 +34,9 @@ export default function FeaturesCards() {
     <section className="py-12 md:py-20">
       <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-16">
         <div className="relative z-10 mx-auto max-w-xl space-y-4 text-center md:space-y-8">
-          <h2 className="text-balance text-4xl font-medium lg:text-5xl">Why Choose SendLead?</h2>
+          <h2 className="text-balance text-4xl font-medium lg:text-5xl">Why Choose Palm?</h2>
           <p className="text-muted-foreground text-base md:text-lg">
-            The modern way to fill your pipeline: exclusive, AI-qualified prospects delivered instantly to your CRM.
+            The modern way to scale B2B tech: systematic growth engines that deliver qualified deals directly to your sales team.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">

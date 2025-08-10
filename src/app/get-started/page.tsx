@@ -1,29 +1,38 @@
 "use client";
 
-import QuizFunnel from "@/components/quiz-funnel";
-import { ArrowLeft } from "lucide-react";
-import Link from "next/link";
+import { HeroHeader } from "@/components/header";
+import Footer from "@/components/footer";
+import { CalendlyWidget } from "@/components/calendly-widget";
 
-export default function QuizPage() {
+export default function GetStartedPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-black text-white py-4 px-4">
-        <Link href="/" className="max-w-2xl mx-auto flex items-center relative">
-          <ArrowLeft className="h-5 w-5 absolute left-0" />
-          <h1 className="text-2xl font-black flex-grow text-center">Sendlead</h1>
-        </Link>
-      </header>
-      <div className="py-8">
-        <div className="max-w-2xl mx-auto px-4">
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-black text-gray-900 mb-4">Get Started</h1>
-            <p className="text-gray-600">
-            Answer a few quick questions and let's find out if we're the right partner to scale your lead generation.
+    <div className="min-h-screen bg-background">
+      <HeroHeader />
+      
+      <main className="pt-16">
+        {/* Hero Section */}
+        <section className="relative py-20 md:py-24">
+          <div className="absolute inset-0 -z-10 size-full [background:radial-gradient(125%_125%_at_50%_100%,transparent_0%,var(--color-background)_75%)]"></div>
+          <div className="mx-auto max-w-4xl px-6 text-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+              Schedule Your 30-Minute Consultation
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto mb-4">
+              Let's discuss how PushSend can help you generate consistent sales conversations with qualified prospects ready to speak with your team.
             </p>
+            <p className="text-gray-500 text-sm">Please wait a moment for the calendar to load below.</p>
           </div>
-          <QuizFunnel />
-        </div>
-      </div>
+        </section>
+
+        {/* Calendly Section */}
+        <section className="pt-2 pb-20">
+          <div className="w-full px-6">
+            <CalendlyWidget />
+          </div>
+        </section>
+      </main>
+
+      <Footer />
     </div>
   );
 } 

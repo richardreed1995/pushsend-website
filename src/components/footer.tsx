@@ -1,82 +1,111 @@
+"use client";
+
 import { Logo } from '@/components/logo'
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { cn } from "../lib/utils";
-import { ChevronsUpDown } from 'lucide-react'
+import { ChevronsUpDown, Mail, Phone } from 'lucide-react'
 import Link from 'next/link'
+import { useState } from 'react'
 
 const links = [
     {
-        group: 'Lead Generation',
+        group: 'Overview',
         items: [
             {
-                title: 'Mortgages',
-                href: '#',
+                title: 'Why PushSend',
+                href: '/#why-pushsend',
             },
             {
-                title: 'Life Insurance',
-                href: '#',
+                title: 'Process',
+                href: '/#process',
             },
-            {
-                title: 'Business Loans',
-                href: '#',
-            },
-            {
-                title: 'Auto Insurance',
-                href: '#',
-            },
-            {
-                title: 'Collaboration',
-                href: '#',
-            },
-            {
-                title: 'Credit Repair',
-                href: '#',
-            },
-            {
-                title: 'Pet Insurance',
-                href: '#',
-            },
-        ],
-    },
-    {
-        group: 'Company',
-        items: [
             {
                 title: 'About',
-                href: '#',
-            },
-            {
-                title: 'Careers',
-                href: '#',
-            },
-            {
-                title: 'Blog',
-                href: '#',
+                href: '/about',
             },
         ],
     },
     {
-        group: 'Policies',
+        group: 'Resources',
         items: [
             {
-                title: 'Privacy Policy',
-                href: '#',
+                title: 'Blog',
+                href: '/blog',
             },
             {
-                title: 'Cookie Policy',
-                href: '#',
+                title: 'Downloads',
+                href: '/downloads',
+            },
+            {
+                title: 'Newsletter',
+                href: '/newsletter',
+            },
+        ],
+    },
+    {
+        group: 'Legal',
+        items: [
+            {
+                title: 'Privacy',
+                href: '/privacy',
             },
             {
                 title: 'Terms',
-                href: '#',
+                href: '/terms',
+            },
+            {
+                title: 'Cookies',
+                href: '/cookies',
             },
         ],
     },
 ]
 
 export default function FooterSection() {
+    const [email, setEmail] = useState("");
+    const [error, setError] = useState("");
+    const [isSubmitted, setIsSubmitted] = useState(false);
+
+    const validateEmail = (email: string) => {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    };
+
+    const handleEmailSubmit = async () => {
+        setError("");
+        if (!email.trim()) {
+            return setError("Please enter your email address");
+        }
+        if (!validateEmail(email)) {
+            return setError("Please enter a valid email address");
+        }
+
+        // Send data to webhook
+        try {
+            await fetch("https://hook.eu2.make.com/19t79l6rolrkfjod77hd2yr952a54ph5", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    email,
+                    type: "newsletter-subscription",
+                    completedAt: new Date().toISOString(),
+                }),
+            });
+        } catch (e) {
+            // Fail silently
+        }
+
+        setIsSubmitted(true);
+        setEmail("");
+    };
+
+    const handleKeyPress = (e: React.KeyboardEvent) => {
+        if (e.key === 'Enter') {
+            handleEmailSubmit();
+        }
+    };
+
     return (
         <footer className="border-b bg-white pt-20 dark:bg-transparent">
             <div className="mb-8 border-b md:mb-12">
@@ -93,7 +122,7 @@ export default function FooterSection() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="LinkedIn"
-                            className="text-muted-foreground hover:text-primary block">
+                            className="text-muted-foreground hover:text-orange-500 block">
                             <svg
                                 className="size-6"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -110,7 +139,7 @@ export default function FooterSection() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Facebook"
-                            className="text-muted-foreground hover:text-primary block">
+                            className="text-muted-foreground hover:text-orange-500 block">
                             <svg
                                 className="size-6"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -127,7 +156,7 @@ export default function FooterSection() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Instagram"
-                            className="text-muted-foreground hover:text-primary block">
+                            className="text-muted-foreground hover:text-orange-500 block">
                             <svg
                                 className="size-6"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -143,8 +172,8 @@ export default function FooterSection() {
                 </div>
             </div>
             <div className="mx-auto max-w-5xl px-6">
-                <div className="grid gap-12 md:grid-cols-5 md:gap-0 lg:grid-cols-4">
-                    <div className="grid grid-cols-2 gap-6 sm:grid-cols-4 md:col-span-5 md:row-start-1 lg:col-span-3">
+                <div className="grid gap-12 md:grid-cols-6 md:gap-0 lg:grid-cols-5">
+                    <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:col-span-4 md:row-start-1 lg:col-span-3">
                         {links.map((link, index) => (
                             <div
                                 key={index}
@@ -154,35 +183,72 @@ export default function FooterSection() {
                                     <Link
                                         key={index}
                                         href={item.href}
-                                        className="text-muted-foreground hover:text-primary block duration-150">
+                                        className="text-muted-foreground hover:text-orange-500 block duration-150">
                                         <span>{item.title}</span>
                                     </Link>
                                 ))}
                             </div>
                         ))}
                     </div>
-                    <form className="row-start-1 border-b pb-8 text-sm md:col-span-2 md:border-none lg:col-span-1">
+                    
+                    {/* Contact Column */}
+                    <div className="space-y-4 text-sm md:col-span-2 md:row-start-1 lg:col-span-1">
+                        <span className="block font-medium">Contact</span>
+                        <div className="space-y-2">
+                            <Link
+                                href="mailto:richard@pushsend.co"
+                                className="text-muted-foreground hover:text-orange-500 block duration-150">
+                                <span>Email</span>
+                            </Link>
+                            <Link
+                                href="/contact"
+                                className="text-muted-foreground hover:text-orange-500 block duration-150 flex items-center gap-2">
+                                <span>Contact</span>
+                            </Link>
+                        </div>
+                    </div>
+
+                    {/* Newsletter Signup */}
+                    <div className="row-start-1 border-b pb-8 text-sm md:col-span-2 md:border-none lg:col-span-1">
                         <div className="space-y-4">
                             <Label
                                 htmlFor="mail"
                                 className="block font-medium">
                                 Subscribe to our newsletter
                             </Label>
-                            <div className="flex gap-2">
-                                <Input
-                                    type="email"
-                                    id="mail"
-                                    name="mail"
-                                    placeholder="Your email"
-                                    className="h-8 text-sm"
-                                />
-                                <Button size="sm">Submit</Button>
-                            </div>
+                            {!isSubmitted ? (
+                                <div className="space-y-2">
+                                    <div className="flex gap-2">
+                                        <Input
+                                            type="email"
+                                            id="mail"
+                                            name="mail"
+                                            placeholder="Your email"
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            onKeyPress={handleKeyPress}
+                                            className="h-8 text-sm flex-1"
+                                        />
+                                        <Button 
+                                            size="sm" 
+                                            className="bg-orange-500 text-white hover:bg-orange-600"
+                                            onClick={handleEmailSubmit}
+                                        >
+                                            Submit
+                                        </Button>
+                                    </div>
+                                    {error && <p className="text-red-500 text-xs">{error}</p>}
+                                </div>
+                            ) : (
+                                <div className="text-green-600 text-xs">
+                                    Thanks for subscribing!
+                                </div>
+                            )}
                         </div>
-                    </form>
+                    </div>
                 </div>
                 <div className="mt-12 flex flex-wrap items-end justify-between gap-6 border-t py-6">
-                    <small className="text-muted-foreground order-last block text-center text-sm md:order-first">© {new Date().getFullYear()} Sendlead, All rights reserved</small>
+                    <small className="text-muted-foreground order-last block text-center text-sm md:order-first">© 2025 PushSend. All rights reserved.</small>
                 </div>
             </div>
         </footer>
