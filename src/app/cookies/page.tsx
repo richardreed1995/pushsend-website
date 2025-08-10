@@ -158,10 +158,10 @@ export default function CookiesPage() {
 
             <div className="bg-gray-100 p-6 rounded-lg my-6">
               <div className="space-y-2">
-                <p><strong>Chrome:</strong> Settings > Privacy and Security > Cookies and other site data</p>
-                <p><strong>Firefox:</strong> Options > Privacy & Security > Enhanced Tracking Protection</p>
-                <p><strong>Safari:</strong> Preferences > Privacy</p>
-                <p><strong>Edge:</strong> Settings > Cookies and site permissions</p>
+                <p><strong>Chrome:</strong> Settings &gt; Privacy and Security &gt; Cookies and other site data</p>
+                <p><strong>Firefox:</strong> Options &gt; Privacy & Security &gt; Enhanced Tracking Protection</p>
+                <p><strong>Safari:</strong> Preferences &gt; Privacy</p>
+                <p><strong>Edge:</strong> Settings &gt; Cookies and site permissions</p>
               </div>
             </div>
 
