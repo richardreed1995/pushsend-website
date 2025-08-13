@@ -23,7 +23,7 @@ export function CalendlyWidget() {
         widgetRef.current.innerHTML = ''
         
         window.Calendly.initInlineWidget({
-          url: "https://calendly.com/richard-pushsend/intro?hide_gdpr_banner=1",
+          url: "https://calendly.com/richard-breeze/intro?hide_gdpr_banner=1",
           parentElement: widgetRef.current,
           prefill: {},
           utm: {},

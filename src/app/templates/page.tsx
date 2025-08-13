@@ -108,7 +108,7 @@ export default function TemplatesPage() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       onKeyPress={handleKeyPress}
-                      className="text-lg p-4 h-14 border-2 focus:ring-4 focus:ring-orange-500/20 focus:border-orange-500"
+                      className="text-lg p-4 h-14 border-2 focus:ring-4 focus:ring-blue-400/20 focus:border-blue-400"
                     />
                   </div>
                   
@@ -116,7 +116,7 @@ export default function TemplatesPage() {
                   
                   <Button 
                     onClick={handleEmailSubmit}
-                    className="w-full text-lg py-4 h-14 bg-orange-500 text-white hover:bg-orange-600 font-semibold"
+                    className="w-full text-lg py-4 h-14 bg-blue-400 text-white hover:bg-blue-500 font-semibold"
                   >
                     <Download className="mr-2 h-5 w-5" />
                     Get Free Downloads
@@ -139,7 +139,7 @@ export default function TemplatesPage() {
                     <select
                       value={formData.revenue}
                       onChange={(e) => setFormData({ ...formData, revenue: e.target.value })}
-                      className="w-full p-3 h-12 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 bg-background"
+                      className="w-full p-3 h-12 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 bg-background"
                     >
                       <option value="">Select your annual revenue</option>
                       <option value="under-100k">Under $100k</option>
@@ -156,7 +156,7 @@ export default function TemplatesPage() {
                     <select
                       value={formData.constraint}
                       onChange={(e) => setFormData({ ...formData, constraint: e.target.value })}
-                      className="w-full p-3 h-12 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 bg-background"
+                      className="w-full p-3 h-12 border border-input rounded-md focus:ring-2 focus:ring-blue-400 focus:border-blue-400 bg-background"
                     >
                       <option value="">Select your biggest constraint</option>
                       <option value="lead-generation">Lead Generation</option>
@@ -173,7 +173,7 @@ export default function TemplatesPage() {
                   
                   <Button 
                     onClick={handleFormSubmit}
-                    className="w-full text-lg py-4 h-14 bg-orange-500 text-white hover:bg-orange-600 font-semibold"
+                    className="w-full text-lg py-4 h-14 bg-blue-400 text-white hover:bg-blue-500 font-semibold"
                   >
                     <Download className="mr-2 h-5 w-5" />
                     Download Templates

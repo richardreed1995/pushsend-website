@@ -8,8 +8,8 @@ import { cn } from "../lib/utils";
 
 const navigationItems = [
     {
-        name: 'Why PushSend',
-        href: '/#why-pushsend',
+        name: 'Why Breeze',
+        href: '/#why-breeze',
         hasDropdown: false
     },
     {
@@ -17,27 +17,17 @@ const navigationItems = [
         href: '/#process',
         hasDropdown: false
     },
-    {
-        name: 'About',
-        href: '/about',
-        hasDropdown: false
-    },
+
     {
         name: 'Resources',
         href: '#',
         hasDropdown: true,
         items: [
             {
-                title: 'Blog',
-                description: 'Growth insights & tips',
-                href: '/blog',
-                icon: BookOpen
-            },
-            {
                 title: 'Downloads',
-                description: '12 free downloads',
+                description: 'Free resources & templates',
                 href: '/downloads',
-                icon: ClipboardList
+                icon: Download
             },
             {
                 title: 'Newsletter',
@@ -166,9 +156,9 @@ export const HeroHeader = () => {
                             <Button
                                 asChild
                                 size="sm"
-                                className="lg:inline-flex bg-orange-500 text-white hover:bg-orange-600">
-                                <Link href="/get-started">
-                                    <span>Get Started</span>
+                                className="lg:inline-flex bg-blue-300 text-white hover:bg-blue-400">
+                                <Link href="/contact">
+                                    <span>Get started</span>
                                 </Link>
                             </Button>
                         </div>
