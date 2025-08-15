@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { Button } from '../../components/ui/button'
 import { Input } from '../../components/ui/input'
@@ -9,7 +9,8 @@ import { Logo } from '../../components/logo'
 import { ChevronDown } from 'lucide-react'
 import { CalendlyWidget } from '../../components/calendly-widget'
 
-export default function PPLPage() {
+// Separate component that uses useSearchParams
+function PPLCalculator() {
   const router = useRouter()
   const searchParams = useSearchParams()
   
@@ -476,6 +477,22 @@ export default function PPLPage() {
         </Card>
       </div>
     </div>
+  )
+}
+
+// Main page component with Suspense boundary
+export default function PPLPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-orange-500 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading calculator...</p>
+        </div>
+      </div>
+    }>
+      <PPLCalculator />
+    </Suspense>
   )
 }
 
