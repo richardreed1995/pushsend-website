@@ -42,14 +42,17 @@ export default function ContactPage() {
     }
 
     try {
-      // Send data to webhook (you can replace this with your actual endpoint)
-      await fetch("https://hook.eu2.make.com/xq1dvs5e98p1w88grh58skodmco254tx", {
+      // Send data to webhook
+      await fetch("https://hook.eu2.make.com/2tm4p7ujcasjwg9owgm55chc8tacb1tb", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...formData,
           type: "contact-form",
+          source: "pushsend-website",
           completedAt: new Date().toISOString(),
+          userAgent: navigator.userAgent,
+          timestamp: Date.now(),
         }),
       });
       
