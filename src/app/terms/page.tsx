@@ -8,47 +8,47 @@ export default function TermsPage() {
       <main className="flex-1 w-full max-w-4xl mx-auto px-4 pt-32 pb-20">
         <article className="prose prose-lg mx-auto text-center [&_h2]:font-bold [&_h3]:font-bold">
           <div className="mb-16 flex flex-col items-center gap-6">
-            <div className="text-gray-500 text-base mb-2">12 Dec, 2024 <span className="mx-2">|</span> <span className="font-medium">PushSend Team</span></div>
+            <div className="text-gray-500 text-base mb-2">12 Dec, 2024 <span className="mx-2">|</span> <span className="font-medium">Breeze Team</span></div>
             <h1 className="text-4xl font-bold mb-2 leading-tight">Terms of Service</h1>
             <p className="text-lg text-gray-600 max-w-2xl">These terms of service govern all use of our services, website, and platform. We want to be clear and transparent about what you can expect from us and what we expect from you.</p>
           </div>
           <div className="text-left space-y-8 text-lg leading-relaxed px-2 md:px-8">
             <p>
-              We are Surf Marketing LTD T/A PushSend - providing B2B lead generation services to our global client base. These terms of service ("Terms") govern all use of our services, website, and platform. We want to be clear and transparent about what you can expect from us and what we expect from you. Please read these Terms carefully before using our services.
+              We are Surf Marketing LTD T/A Breeze - providing HubSpot partner agency services to our global client base. These terms of service ("Terms") govern all use of our services, website, and platform. We want to be clear and transparent about what you can expect from us and what we expect from you. Please read these Terms carefully before using our services.
             </p>
 
             <h2 className="text-2xl font-bold mt-12 mb-6">Our Services</h2>
             
             <p>
-              PushSend provides B2B lead generation services through our proprietary platform and technologies. Our services include the identification of potential business prospects, email campaign management, response handling, and performance reporting. When you use our services, you are engaging us to conduct these activities on your behalf.
+              Breeze provides HubSpot partner agency services through our certified expertise and technologies. Our services include HubSpot implementation, optimization, training, and ongoing support across allsponse handling, and performance reporting. When you use our services, you are engaging us to conduct these activities on your behalf.
             </p>
 
             <p>
-              These Terms apply to any use of our services, whether through our website, client portal, or any other means of access we provide. In these Terms, "we", "us", and "our" refer to PushSend Ltd, and "you" and "your" refer to the business entity using our services.
+              These Terms apply to any use of our services, whether through our website, client portal, or any other means of access we provide. In these Terms, "we", "us", and "our" refer to Breeze, and "you" and "your" refer to the business entity using our services.
             </p>
 
             <h2 className="text-2xl font-bold mt-12 mb-6">Service Agreement</h2>
             
             <p>
-              When you engage our services, we will provide them in accordance with the service agreement between us. The service agreement forms part of these Terms and includes specific details about the services we will provide, including campaign parameters, target criteria, and any special requirements.
+              When you engage our services, we will provide them in accordance with the service agreement between us. The service agreement forms part of these Terms and includes specific details about the services we will provide, including HubSpot implementation parameters, optimization criteria, and any special requirements.
             </p>
 
             <p>
-              We will use reasonable skill and care in providing our services and will follow your reasonable instructions in relation to the services. However, you acknowledge that we cannot guarantee any particular results from our lead generation activities, as responses depend on many factors outside our control.
+              We will use reasonable skill and care in providing our services and will follow your reasonable instructions in relation to the services. However, you acknowledge that we cannot guarantee any particular results from our HubSpot optimization activities, as outcomes depend on many factors including your business processes and market conditions.
             </p>
 
             <h2 className="text-2xl font-bold mt-12 mb-6">Your Obligations</h2>
             
             <p>
-              When using our services, you must provide us with accurate and complete information about your business, your target market, and your requirements. This includes any specific criteria for lead generation, your brand guidelines, and any particular requirements for campaign management.
+              When using our services, you must provide us with accurate and complete information about your business, your HubSpot implementation goals, and your requirements. This includes any specific criteria for optimization, your brand guidelines, and any particular requirements for marketing automation.
             </p>
 
             <p>
-              You are responsible for reviewing and approving all campaign materials before they are used. While we will create content based on your requirements and industry best practices, the final approval rests with you to ensure it meets your standards and complies with your policies.
+              You are responsible for reviewing and approving all HubSpot configurations and workflows before they are implemented. While we will create solutions based on your requirements and industry best practices, the final approval rests with you to ensure it meets your standards and complies with your policies.
             </p>
 
             <p>
-              You must respond to leads generated through our services in a timely and professional manner. This includes monitoring your dedicated channels for responses and engaging with prospects according to the agreed protocols. Failure to manage leads appropriately may impact the effectiveness of our services and your results.
+              You must actively participate in the optimization process and provide feedback on our recommendations. This includes testing new workflows, reviewing performance metrics, and engaging with our team according to the agreed protocols. Failure to participate appropriately may impact the effectiveness of our services and your results.
             </p>
 
             <h2 className="text-2xl font-bold mt-12 mb-6">Data Protection and Privacy</h2>

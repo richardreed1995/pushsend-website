@@ -8,17 +8,17 @@ export default function PrivacyPage() {
       <main className="flex-1 w-full max-w-4xl mx-auto px-4 pt-32 pb-20">
         <article className="prose prose-lg mx-auto text-center [&_h2]:font-bold [&_h3]:font-bold">
           <div className="mb-16 flex flex-col items-center gap-6">
-            <div className="text-gray-500 text-base mb-2">12 Dec, 2024 <span className="mx-2">|</span> <span className="font-medium">PushSend Team</span></div>
+            <div className="text-gray-500 text-base mb-2">12 Dec, 2024 <span className="mx-2">|</span> <span className="font-medium">Breeze Team</span></div>
             <h1 className="text-4xl font-bold mb-2 leading-tight">Privacy Policy</h1>
             <p className="text-lg text-gray-600 max-w-2xl">We are committed to safeguarding the privacy and accuracy of the personal data of our website visitors, service users and email recipients.</p>
           </div>
           <div className="text-left space-y-8 text-lg leading-relaxed px-2 md:px-8">
             <p>
-              We are Surf Marketing Ltd T/A PushSend – providing B2B lead generation services to our global client base. We are a technology company that processes publicly available data to identify sales prospects for our clients. Your privacy is important to us, and we take our responsibilities seriously, always responding quickly and courteously to any request. You can contact us using the details below:
+              We are Surf Marketing Ltd T/A Breeze – providing HubSpot partner agency services to our global client base. We are a technology company that helps businesses optimize their HubSpot implementation and marketing automation. Your privacy is important to us, and we take our responsibilities seriously, always responding quickly and courteously to any request. You can contact us using the details below:
             </p>
 
             <p>
-              <strong>By email to our Data Protection Officer:</strong> <a href="mailto:richard@pushsend.co" className="text-blue-600 hover:underline">richard@pushsend.co</a>
+              <strong>By email to our Data Protection Officer:</strong> <a href="mailto:richard@breeze.co" className="text-blue-600 hover:underline">richard@breeze.co</a>
             </p>
 
             <h2 className="text-2xl font-bold mt-12 mb-6">Our GDPR Policy</h2>
@@ -32,7 +32,7 @@ export default function PrivacyPage() {
             </p>
 
             <p>
-              This policy also applies where we determine the purpose and means of the processing jointly with our clients and other companies, or where we are acting as a Processor, working on behalf of our clients to process data as required by them. In this policy, "We", "Us" and "Our" refer to PushSend Ltd.
+              This policy also applies where we determine the purpose and means of the processing jointly with our clients and other companies, or where we are acting as a Processor, working on behalf of our clients to process data as required by them. In this policy, "We", "Us" and "Our" refer to Breeze.
             </p>
 
             <p>
@@ -68,12 +68,12 @@ export default function PrivacyPage() {
 
             <h4 className="text-lg font-bold mt-6 mb-3">Prospect Data</h4>
             <p>
-              We may process information found on public business directories, professional networking platforms, and other publicly available sources ("Prospect Data"). This data may include name, employment information, business contact details, job title, and other relevant professional information. Prospect Data may be processed for the purposes of identifying and contacting potential business opportunities for our clients. The legal basis for this processing is our legitimate interests, namely to develop our business and provide services to our clients.
+              We may process information related to HubSpot implementations, marketing automation workflows, and client business requirements ("Service Data"). This data may include business information, marketing goals, technical requirements, and other relevant professional information. Service Data may be processed for the purposes of providing HubSpot optimization services and improving our client's marketing automation. The legal basis for this processing is our legitimate interests, namely to develop our business and provide services to our clients.
             </p>
 
-            <h4 className="text-lg font-bold mt-6 mb-3">Campaign Data</h4>
+            <h4 className="text-lg font-bold mt-6 mb-3">HubSpot Data</h4>
             <p>
-              We may process data related to email marketing campaigns ("Campaign Data"). This includes email engagement metrics, response rates, and communication preferences. The source of the Campaign Data is our email marketing platform and client interactions. The legal basis for this processing is legitimate interests and/or performance of a contract with our clients.
+              We may process data related to HubSpot implementations and marketing automation ("HubSpot Data"). This includes workflow performance metrics, automation effectiveness, and platform optimization data. The source of the HubSpot Data is our HubSpot partner platform and client interactions. The legal basis for this processing is legitimate interests and/or performance of a contract with our clients.
             </p>
 
             <h4 className="text-lg font-bold mt-6 mb-3">Enquiry Data</h4>
@@ -91,22 +91,22 @@ export default function PrivacyPage() {
             
             <p>We use a range of sources to provide our services, including:</p>
             <ul className="list-disc pl-6 mt-4 space-y-2">
-              <li>Public domain sources</li>
-              <li>Professional networking platforms</li>
-              <li>Business directories</li>
+              <li>HubSpot platform data</li>
+              <li>Client business requirements</li>
+              <li>Marketing automation workflows</li>
               <li>Client-provided information</li>
               <li>Direct submissions through our website</li>
             </ul>
 
             <p>
-              Our approach is based on carefully targeting business contacts with offers that we believe will be relevant to their professional role. We carefully select representatives from businesses and then only send relevant offers.
+              Our approach is based on understanding our clients' business needs and optimizing their HubSpot implementation to improve marketing automation and business outcomes.
             </p>
 
             <h2 className="text-2xl font-bold mt-12 mb-6">Data Sharing</h2>
             
             <p>We don't routinely share your personal data with third parties except:</p>
             <ul className="list-disc pl-6 mt-4 space-y-2">
-              <li>With the specific client on whose behalf we are conducting prospecting activities</li>
+              <li>With the specific client on whose behalf we are providing HubSpot services</li>
               <li>With our carefully selected service providers who help us deliver our services</li>
               <li>Where required by law or regulation</li>
               <li>With our group companies where necessary for internal administration</li>
@@ -130,8 +130,8 @@ export default function PrivacyPage() {
             <p>We retain personal data only as long as necessary for the purposes we collected it. Typical retention periods are:</p>
             <ul className="list-disc pl-6 mt-4 space-y-2">
               <li>Client data: Duration of service plus 6 years for legal and tax purposes</li>
-              <li>Prospect data: 2 years from last interaction</li>
-              <li>Campaign data: 3 years from campaign completion</li>
+              <li>HubSpot implementation data: 2 years from last interaction</li>
+              <li>Service data: 3 years from service completion</li>
               <li>Technical data: 14 months</li>
             </ul>
 
@@ -157,10 +157,10 @@ export default function PrivacyPage() {
             
             <p>We use automated processing to:</p>
             <ul className="list-disc pl-6 mt-4 space-y-2">
-              <li>Verify contact details</li>
-              <li>Assess campaign suitability</li>
-              <li>Monitor engagement metrics</li>
-              <li>Optimise campaign performance</li>
+              <li>Optimize HubSpot workflows</li>
+              <li>Assess marketing automation effectiveness</li>
+              <li>Monitor platform performance</li>
+              <li>Improve service delivery</li>
             </ul>
 
             <p>
@@ -182,7 +182,7 @@ export default function PrivacyPage() {
             
             <p>If you have concerns about how we process your personal data:</p>
             <ol className="list-decimal pl-6 mt-4 space-y-2">
-              <li>Please contact us first at <a href="mailto:richard@pushsend.co" className="text-blue-600 hover:underline">richard@pushsend.co</a> - we aim to resolve all complaints internally</li>
+              <li>Please contact us first at <a href="mailto:richard@breeze.co" className="text-blue-600 hover:underline">richard@breeze.co</a> - we aim to resolve all complaints internally</li>
               <li>If you remain unsatisfied, you can contact the Information Commissioner's Office:</li>
             </ol>
 

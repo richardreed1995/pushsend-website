@@ -14,26 +14,20 @@ const links = [
         group: 'Overview',
         items: [
             {
-                title: 'Why PushSend',
-                href: '/#why-pushsend',
+                title: 'Why Breeze',
+                href: '/#why-breeze',
             },
             {
                 title: 'Process',
                 href: '/#process',
             },
-            {
-                title: 'About',
-                href: '/about',
-            },
+
         ],
     },
     {
         group: 'Resources',
         items: [
-            {
-                title: 'Blog',
-                href: '/blog',
-            },
+
             {
                 title: 'Downloads',
                 href: '/downloads',
@@ -122,7 +116,7 @@ export default function FooterSection() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="LinkedIn"
-                            className="text-muted-foreground hover:text-orange-500 block">
+                            className="text-muted-foreground hover:text-blue-500 block">
                             <svg
                                 className="size-6"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -139,7 +133,7 @@ export default function FooterSection() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Facebook"
-                            className="text-muted-foreground hover:text-orange-500 block">
+                            className="text-muted-foreground hover:text-blue-500 block">
                             <svg
                                 className="size-6"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -156,7 +150,7 @@ export default function FooterSection() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Instagram"
-                            className="text-muted-foreground hover:text-orange-500 block">
+                            className="text-muted-foreground hover:text-blue-500 block">
                             <svg
                                 className="size-6"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -183,7 +177,7 @@ export default function FooterSection() {
                                     <Link
                                         key={index}
                                         href={item.href}
-                                        className="text-muted-foreground hover:text-orange-500 block duration-150">
+                                        className="text-muted-foreground hover:text-blue-500 block duration-150">
                                         <span>{item.title}</span>
                                     </Link>
                                 ))}
@@ -196,13 +190,13 @@ export default function FooterSection() {
                         <span className="block font-medium">Contact</span>
                         <div className="space-y-2">
                             <Link
-                                href="mailto:richard@pushsend.co"
-                                className="text-muted-foreground hover:text-orange-500 block duration-150">
+                                href="mailto:richard@breezeb2b.com"
+                                className="text-muted-foreground hover:text-blue-500 block duration-150">
                                 <span>Email</span>
                             </Link>
                             <Link
                                 href="/contact"
-                                className="text-muted-foreground hover:text-orange-500 block duration-150 flex items-center gap-2">
+                                className="text-muted-foreground hover:text-blue-500 block duration-150 flex items-center gap-2">
                                 <span>Contact</span>
                             </Link>
                         </div>
@@ -231,7 +225,7 @@ export default function FooterSection() {
                                         />
                                         <Button 
                                             size="sm" 
-                                            className="bg-orange-500 text-white hover:bg-orange-600"
+                                            className="bg-blue-300 text-white hover:bg-blue-400"
                                             onClick={handleEmailSubmit}
                                         >
                                             Submit
@@ -248,7 +242,7 @@ export default function FooterSection() {
                     </div>
                 </div>
                 <div className="mt-12 flex flex-wrap items-end justify-between gap-6 border-t py-6">
-                    <small className="text-muted-foreground order-last block text-center text-sm md:order-first">© 2025 PushSend. All rights reserved.</small>
+                    <small className="text-muted-foreground order-last block text-center text-sm md:order-first">© 2025 Breeze. All rights reserved.</small>
                 </div>
             </div>
         </footer>

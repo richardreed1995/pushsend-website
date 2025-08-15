@@ -77,9 +77,9 @@ export default function ContactPage() {
         <HeroHeader />
         <main className="pt-24 md:pt-36">
           <div className="max-w-2xl mx-auto px-6 text-center">
-            <div className="bg-orange-50 border border-orange-200 rounded-2xl p-8 md:p-12">
-              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-blue-50 border border-blue-200 rounded-2xl p-8 md:p-12">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
@@ -88,7 +88,7 @@ export default function ContactPage() {
                 We've received your message. Our team will get back to you within 24 hours.
               </p>
               <p className="text-sm text-gray-500">
-                In the meantime, check out our <a href="/blog" className="text-orange-600 hover:underline">growth insights</a> to get started.
+                In the meantime, check out our <a href="/downloads" className="text-blue-600 hover:underline">free resources</a> to get started.
               </p>
             </div>
           </div>
@@ -105,7 +105,7 @@ export default function ContactPage() {
         <div className="max-w-2xl mx-auto px-6">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Contact Us
+              Get Started
             </h1>
             <p className="text-lg text-muted-foreground">
               Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
@@ -214,7 +214,7 @@ export default function ContactPage() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full h-12 bg-orange-500 text-white hover:bg-orange-600 font-semibold"
+                className="w-full h-12 bg-blue-300 text-white hover:bg-blue-400 font-semibold"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </Button>

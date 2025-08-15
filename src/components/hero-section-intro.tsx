@@ -37,7 +37,7 @@ export default function HeroSectionIntro() {
           </div>
         </div>
       </div>
-      <LogoCloud />
+      {/* <LogoCloud /> */}
     </section>
   );
 } 
