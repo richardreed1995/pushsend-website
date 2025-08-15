@@ -2,12 +2,12 @@ import { Cpu, Fingerprint, Pencil, Settings2, Sparkles, Zap } from 'lucide-react
 
 export default function Features() {
     return (
-        <section id="why-breeze" className="py-6 md:py-10 scroll-mt-24">
+        <section id="why-pushsend" className="py-6 md:py-10 scroll-mt-24">
             <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-16">
                 <div className="relative z-10 mx-auto max-w-xl space-y-4 text-center md:space-y-8">
-                    <h2 className="text-balance text-4xl font-medium lg:text-5xl">Why Choose Our HubSpot Expertise?</h2>
+                    <h2 className="text-balance text-4xl font-medium lg:text-5xl">Why PushSend?</h2>
                     <p className="text-muted-foreground text-base md:text-s">
-                        Access a dedicated team of HubSpot specialists with deep platform knowledge and proven results across industries.
+                        We combine enterprise intelligence platforms with strategic outreach to help B2B companies generate consistent sales conversations. Seamless handoffs to your sales team with qualified, interested prospects.
                     </p>
                 </div>
 
@@ -15,44 +15,44 @@ export default function Features() {
                     <div className="space-y-3">
                         <div className="flex items-center gap-2">
                             <Zap className="size-5 text-zinc-500" />
-                            <h3 className="text-base font-semibold">Expertise</h3>
+                            <h3 className="text-base font-semibold">Data intelligence</h3>
                         </div>
-                        <p className="text-sm text-muted-foreground">Access a dedicated team of HubSpot specialists with deep platform knowledge and proven results across industries.</p>
+                        <p className="text-sm text-muted-foreground">Find the right people. We use the latest data intelligence tools to identify and prioritise prospects most likely to engage in sales conversations.</p>
                     </div>
                     <div className="space-y-3">
                         <div className="flex items-center gap-2">
                             <Cpu className="size-5 text-zinc-500" />
-                            <h3 className="text-base font-semibold">Speed</h3>
+                            <h3 className="text-base font-semibold">Personalised emails</h3>
                         </div>
-                        <p className="text-sm text-muted-foreground">Growth loves speed. We complete HubSpot projects efficiently, helping you achieve your goals faster.</p>
+                        <p className="text-sm text-muted-foreground">Send thoughtful messages. We craft personalised campaigns that get prospects excited to speak with your sales team about your solution.</p>
                     </div>
                     <div className="space-y-3">
                         <div className="flex items-center gap-2">
                             <Fingerprint className="size-5 text-zinc-500" />
-                            <h3 className="text-base font-semibold">Comprehensive</h3>
+                            <h3 className="text-base font-semibold">Enterprise deliverability</h3>
                         </div>
-                        <p className="text-sm text-muted-foreground">From initial setup to advanced optimisation, we handle all aspects of HubSpot across Marketing, Sales, and Service Hubs.</p>
+                        <p className="text-sm text-muted-foreground">Land in the inbox. We use a diversified email sending infrastructure to ensure your emails land in the primary inbox.</p>
                     </div>
                     <div className="space-y-3">
                         <div className="flex items-center gap-2">
                             <Pencil className="size-5 text-zinc-500" />
-                            <h3 className="text-base font-semibold">Results-Driven</h3>
+                            <h3 className="text-base font-semibold">Proven Playbook</h3>
                         </div>
-                        <p className="text-sm text-muted-foreground">Benefit from strategic recommendations designed to improve your HubSpot implementation and maximise ROI.</p>
+                        <p className="text-sm text-muted-foreground">We have 25+ proven outbound playbooks we can deploy for our customers that have been successful across our client base.</p>
                     </div>
                     <div className="space-y-3">
                         <div className="flex items-center gap-2">
                             <Settings2 className="size-5 text-zinc-500" />
-                            <h3 className="text-base font-semibold">Flexible Solutions</h3>
+                            <h3 className="text-base font-semibold">Work with experts</h3>
                         </div>
-                        <p className="text-sm text-muted-foreground">Whether you need a one-off project or ongoing support, we tailor our approach to your business needs.</p>
+                        <p className="text-sm text-muted-foreground">Work with GTM specialists who understand the nuances of B2B sales cycles and how to effectively engage decision-makers.</p>
                     </div>
                     <div className="space-y-3">
                         <div className="flex items-center gap-2">
                             <Sparkles className="size-5 text-zinc-500" />
-                            <h3 className="text-base font-semibold">Cost-Effective</h3>
+                            <h3 className="text-base font-semibold">Best-in-class process</h3>
                         </div>
-                        <p className="text-sm text-muted-foreground">Avoid expensive long-term commitments. Get expert HubSpot help when you need it, how you need it.</p>
+                        <p className="text-sm text-muted-foreground">We handle prospecting and initial engagement so your sales team can focus on what they do best - closing deals.</p>
                     </div>
                 </div>
             </div>

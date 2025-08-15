@@ -8,23 +8,23 @@ export default function TermsPage() {
       <main className="flex-1 w-full max-w-4xl mx-auto px-4 pt-32 pb-20">
         <article className="prose prose-lg mx-auto text-center [&_h2]:font-bold [&_h3]:font-bold">
           <div className="mb-16 flex flex-col items-center gap-6">
-            <div className="text-gray-500 text-base mb-2">12 Dec, 2024 <span className="mx-2">|</span> <span className="font-medium">Breeze Team</span></div>
+            <div className="text-gray-500 text-base mb-2">12 Dec, 2024 <span className="mx-2">|</span> <span className="font-medium">PushSend Team</span></div>
             <h1 className="text-4xl font-bold mb-2 leading-tight">Terms of Service</h1>
             <p className="text-lg text-gray-600 max-w-2xl">These terms of service govern all use of our services, website, and platform. We want to be clear and transparent about what you can expect from us and what we expect from you.</p>
           </div>
           <div className="text-left space-y-8 text-lg leading-relaxed px-2 md:px-8">
             <p>
-              We are Surf Marketing LTD T/A Breeze - providing HubSpot partner agency services to our global client base. These terms of service ("Terms") govern all use of our services, website, and platform. We want to be clear and transparent about what you can expect from us and what we expect from you. Please read these Terms carefully before using our services.
+              We are PushSend – providing lead generation and outbound marketing services to our global client base. These terms of service ("Terms") govern all use of our services, website, and platform. We want to be clear and transparent about how we work with our clients.
             </p>
 
             <h2 className="text-2xl font-bold mt-12 mb-6">Our Services</h2>
             
             <p>
-              Breeze provides HubSpot partner agency services through our certified expertise and technologies. Our services include HubSpot implementation, optimization, training, and ongoing support across allsponse handling, and performance reporting. When you use our services, you are engaging us to conduct these activities on your behalf.
+              PushSend provides lead generation and outbound marketing services through our certified expertise and technologies. Our services include prospect research, email campaigns, lead qualification, and ongoing support across all aspects of lead generation.
             </p>
 
             <p>
-              These Terms apply to any use of our services, whether through our website, client portal, or any other means of access we provide. In these Terms, "we", "us", and "our" refer to Breeze, and "you" and "your" refer to the business entity using our services.
+              Throughout these Terms, "we", "us", and "our" refer to PushSend, and "you" and "your" refer to the business entity using our services.
             </p>
 
             <h2 className="text-2xl font-bold mt-12 mb-6">Service Agreement</h2>

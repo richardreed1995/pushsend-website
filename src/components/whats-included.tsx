@@ -2,43 +2,43 @@ import { Users, Target, MessageSquare, BarChart3, Settings, Mail, Phone, Zap, Sh
 
 const includedServices = [
   {
-    icon: <Users className="size-5 text-blue-300" />,
+    icon: <Users className="size-5 text-orange-500" />,
     title: 'Dedicated account manager'
   },
   {
-    icon: <Target className="size-5 text-blue-300" />,
+    icon: <Target className="size-5 text-orange-500" />,
     title: 'Campaign strategy'
   },
   {
-    icon: <MessageSquare className="size-5 text-blue-300" />,
+    icon: <MessageSquare className="size-5 text-orange-500" />,
     title: 'Email copy written'
   },
   {
-    icon: <Settings className="size-5 text-blue-300" />,
+    icon: <Settings className="size-5 text-orange-500" />,
     title: 'Infrastructure setup'
   },
   {
-    icon: <Phone className="size-5 text-blue-300" />,
+    icon: <Phone className="size-5 text-orange-500" />,
     title: 'Monthly check-in call'
   },
   {
-    icon: <Shield className="size-5 text-blue-300" />,
+    icon: <Shield className="size-5 text-orange-500" />,
     title: 'AI-powered personalisation'
   },
   {
-    icon: <Target className="size-5 text-blue-300" />,
+    icon: <Target className="size-5 text-orange-500" />,
     title: 'Custom lead lists built'
   },
   {
-    icon: <BarChart3 className="size-5 text-blue-300" />,
+    icon: <BarChart3 className="size-5 text-orange-500" />,
     title: 'Weekly reporting'
   },
   {
-    icon: <Zap className="size-5 text-blue-300" />,
+    icon: <Zap className="size-5 text-orange-500" />,
     title: 'Fast onboarding'
   },
   {
-    icon: <Mail className="size-5 text-blue-300" />,
+    icon: <Mail className="size-5 text-orange-500" />,
     title: 'Leads sent to your CRM'
   }
 ];

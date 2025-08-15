@@ -8,18 +8,14 @@ export default function PrivacyPage() {
       <main className="flex-1 w-full max-w-4xl mx-auto px-4 pt-32 pb-20">
         <article className="prose prose-lg mx-auto text-center [&_h2]:font-bold [&_h3]:font-bold">
           <div className="mb-16 flex flex-col items-center gap-6">
-            <div className="text-gray-500 text-base mb-2">12 Dec, 2024 <span className="mx-2">|</span> <span className="font-medium">Breeze Team</span></div>
+            <div className="text-gray-500 text-base mb-2">12 Dec, 2024 <span className="mx-2">|</span> <span className="font-medium">PushSend Team</span></div>
             <h1 className="text-4xl font-bold mb-2 leading-tight">Privacy Policy</h1>
-            <p className="text-lg text-gray-600 max-w-2xl">We are committed to safeguarding the privacy and accuracy of the personal data of our website visitors, service users and email recipients.</p>
-          </div>
-          <div className="text-left space-y-8 text-lg leading-relaxed px-2 md:px-8">
-            <p>
-              We are Surf Marketing Ltd T/A Breeze – providing HubSpot partner agency services to our global client base. We are a technology company that helps businesses optimize their HubSpot implementation and marketing automation. Your privacy is important to us, and we take our responsibilities seriously, always responding quickly and courteously to any request. You can contact us using the details below:
-            </p>
-
-            <p>
-              <strong>By email to our Data Protection Officer:</strong> <a href="mailto:richard@breeze.co" className="text-blue-600 hover:underline">richard@breeze.co</a>
-            </p>
+            <p className="text-gray-800 mb-6">
+            We are PushSend – providing lead generation and outbound marketing services to our global client base. We are a technology company that helps businesses generate qualified leads and optimize their sales pipeline. Your privacy is important to us, and we are committed to protecting your personal information.
+        </p>
+            <p className="text-gray-800 mb-6">
+            <strong>By email to our Data Protection Officer:</strong> <a href="mailto:richard@pushsend.co" className="text-blue-600 hover:underline">richard@pushsend.co</a>
+        </p>
 
             <h2 className="text-2xl font-bold mt-12 mb-6">Our GDPR Policy</h2>
             
@@ -32,7 +28,7 @@ export default function PrivacyPage() {
             </p>
 
             <p>
-              This policy also applies where we determine the purpose and means of the processing jointly with our clients and other companies, or where we are acting as a Processor, working on behalf of our clients to process data as required by them. In this policy, "We", "Us" and "Our" refer to Breeze.
+              In this privacy policy, "We", "Us" and "Our" refer to PushSend.
             </p>
 
             <p>
@@ -182,7 +178,7 @@ export default function PrivacyPage() {
             
             <p>If you have concerns about how we process your personal data:</p>
             <ol className="list-decimal pl-6 mt-4 space-y-2">
-              <li>Please contact us first at <a href="mailto:richard@breeze.co" className="text-blue-600 hover:underline">richard@breeze.co</a> - we aim to resolve all complaints internally</li>
+              <li>Please contact us first at <a href="mailto:richard@pushsend.co" className="text-blue-600 hover:underline">richard@pushsend.co</a> - we aim to resolve all complaints internally</li>
               <li>If you remain unsatisfied, you can contact the Information Commissioner's Office:</li>
             </ol>
 

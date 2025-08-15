@@ -6,16 +6,16 @@ export default function CallToAction() {
         <section className="py-16">
             <div className="mx-auto max-w-5xl rounded-3xl border px-6 py-12 md:py-20 lg:py-32 bg-zinc-900 text-white">
                 <div className="text-center">
-                    <h2 className="text-balance text-4xl font-semibold lg:text-5xl text-white">Ready to Accelerate Your Growth?</h2>
-                    <p className="mt-4 text-zinc-300">Transform your business with expert HubSpot guidance. Whether you're just getting started or looking to optimise your existing setup, we're here to help you succeed.</p>
+                    <h2 className="text-balance text-4xl font-semibold lg:text-5xl text-white">Ready to grow?</h2>
+                    <p className="mt-4 text-zinc-300">PushSend makes generating sales conversations predictable and profitable. Book a call with our team to learn more.</p>
 
                     <div className="mt-12 flex flex-wrap justify-center gap-4">
                         <Button
                             asChild
                             size="lg"
-                            className="bg-blue-300 text-white hover:bg-blue-400">
-                            <Link href="/contact">
-                                <span>Get started</span>
+                            className="bg-orange-500 text-white hover:bg-orange-600">
+                            <Link href="/get-started">
+                                <span>Get Started</span>
                             </Link>
                         </Button>
                     </div>

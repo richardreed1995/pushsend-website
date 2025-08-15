@@ -47,7 +47,7 @@ export default function HeroSection() {
                                 speedSegment={0.3}
                                 as="h1"
                                 className="mt-8 text-balance text-6xl md:text-7xl lg:mt-16 xl:text-[5.25rem]">
-                                The HubSpot Partner Agency for B2B Businesses
+                                Generate More B2B Sales Conversations Every Month
                             </TextEffect>
                             <TextEffect
                                 per="line"
@@ -56,7 +56,7 @@ export default function HeroSection() {
                                 delay={0.5}
                                 as="p"
                                 className="mx-auto mt-8 max-w-2xl text-balance text-lg">
-                                Get access to a dedicated team of HubSpot experts to accelerate your growth. Fast turnaround. Expert guidance. Tailored solutions.
+                                We identify your ideal prospects and craft personalised outreach campaigns that get them excited to speak with your sales team.
                             </TextEffect>
 
                             <AnimatedGroup
@@ -78,9 +78,9 @@ export default function HeroSection() {
                                     <Button
                                         asChild
                                         size="lg"
-                                        className="rounded-xl px-5 text-base bg-blue-300 text-white hover:bg-blue-400">
-                                        <Link href="/contact">
-                                            <span className="text-nowrap">Get started</span>
+                                        className="rounded-xl px-5 text-base bg-orange-500 text-white hover:bg-orange-600">
+                                        <Link href="/get-started">
+                                            <span className="text-nowrap">Get Started</span>
                                         </Link>
                                     </Button>
                                 </div>
@@ -89,7 +89,7 @@ export default function HeroSection() {
                     </div>
                 </div>
             </section>
-            {/* <LogoCloud /> */}
+            <LogoCloud />
         </main>
     )
 }

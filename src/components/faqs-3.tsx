@@ -18,62 +18,56 @@ export default function FAQsThree() {
         {
             id: 'item-1',
             icon: 'shield-check',
-            question: 'What makes Breeze different from other HubSpot agencies?',
-            answer: 'We\'re a dedicated HubSpot partner agency that focuses exclusively on B2B businesses. Our team consists of certified HubSpot experts who understand the platform inside and out, allowing us to deliver faster results and more strategic guidance than generalist agencies.',
+            question: 'Will this work for my business?',
+            answer: 'We can\'t answer this without reviewing your business - that\'s part of our discovery process. We\'ll give you some honest insight into whether this could work for you. We turn down around 40% of the applications we receive to ensure we only work with businesses where we can deliver results.',
         },
         {
             id: 'item-2',
-            icon: 'clock',
-            question: 'How long does a typical HubSpot project take?',
-            answer: 'Project timelines vary depending on complexity and scope. Simple configurations might take 1-2 weeks, whilst comprehensive implementations or migrations can take 6-12 weeks. We\'ll provide a detailed timeline during our initial consultation.',
+            icon: 'users',
+            question: 'How much work will I need to put in?',
+            answer: 'Very minimal input on your side - we handle basically everything. We generate the leads and support you in closing them, putting systems in place to follow up with all leads we generate. You\'ll provide some initial information about your business and target market, then we take care of the rest. You\'ll receive regular updates and reports, but the heavy lifting is done by our team.',
         },
         {
             id: 'item-3',
-            icon: 'settings',
-            question: 'Do you work with businesses already using HubSpot?',
-            answer: 'Absolutely! Many of our clients come to us with existing HubSpot setups that need optimisation, advanced configuration, or integration with other systems. We can audit your current setup and recommend improvements.',
+            icon: 'trending-up',
+            question: 'What\'s the ROI I can expect?',
+            answer: 'Clients typically receive their first qualified conversations within the first couple of weeks of launch. The ROI will depend on your investment, but most businesses run a positive ROI from the first campaign we launch.',
         },
         {
             id: 'item-4',
-            icon: 'users',
-            question: 'What size businesses do you typically work with?',
-            answer: 'We specialise in B2B businesses ranging from growing startups to established enterprises. Our sweet spot is companies with 10-500 employees who are serious about scaling their sales and marketing operations.',
+            icon: 'message-square',
+            question: 'How do you ensure your emails don\'t sound AI-generated?',
+            answer: 'We use AI carefully with constrained variables - we don\'t let AI write whole emails. We write the emails ourselves and then use AI for specific bits to personalise them. Our team crafts messages that sound like they come from a real person who has done their homework.',
         },
         {
             id: 'item-5',
-            icon: 'graduation-cap',
-            question: 'Can you help with HubSpot training for our team?',
-            answer: 'Yes, we provide comprehensive training as part of our implementation projects. This includes platform training, best practices workshops, and ongoing support to ensure your team can maximise HubSpot\'s capabilities.',
+            icon: 'clock',
+            question: 'How quickly can you generate leads?',
+            answer: 'We typically start seeing responses within 1-2 weeks of launching a campaign. The first qualified meetings usually come in within 2-3 weeks. We optimise campaigns continuously based on performance data to improve results over time.',
         },
         {
             id: 'item-6',
-            icon: 'headphones',
-            question: 'Do you offer ongoing support after project completion?',
-            answer: 'We offer various ongoing support options, from ad-hoc consultancy to regular optimisation reviews. We\'ll discuss what level of ongoing support makes sense for your business during our consultation.',
+            icon: 'bar-chart',
+            question: 'How much visibility will I have into this?',
+            answer: 'Complete transparency. You\'ll receive weekly reports with detailed metrics including open rates, reply rates, meeting bookings, and campaign performance. You\'ll also get notifications for every email response and meeting booking in real-time.',
         },
         {
             id: 'item-7',
-            icon: 'award',
-            question: 'What HubSpot certifications does your team hold?',
-            answer: 'Our team holds multiple HubSpot certifications including Marketing Software, Sales Software, Service Hub, and Solutions Architecture. We stay current with all HubSpot updates and new features.',
+            icon: 'pound-sterling',
+            question: 'What does this cost?',
+            answer: 'We typically have a pilot period for working together, and then we look to implement a long-term growth strategy. Investment varies based on campaign scope and volume targets. Book a call to discuss pricing for your specific requirements.',
         },
         {
             id: 'item-8',
-            icon: 'pound-sterling',
-            question: 'How do you charge for your services?',
-            answer: 'We work on a project basis with transparent, fixed pricing agreed upfront. No hidden costs or surprise fees. We\'ll provide a detailed quote after understanding your specific requirements.',
+            icon: 'globe',
+            question: 'What industries do you work with?',
+            answer: 'We work with B2B companies across SaaS, professional services, financial services, technology, and consulting. The key requirement is that you have a high-value offering (typically £5k+ average contract value) and a clear value proposition.',
         },
         {
             id: 'item-9',
-            icon: 'link',
-            question: 'Can you integrate HubSpot with our existing tools?',
-            answer: 'Yes, we\'re experienced with HubSpot integrations across hundreds of business applications. From CRM migrations to marketing automation tools, we can help connect your entire tech stack.',
-        },
-        {
-            id: 'item-10',
-            icon: 'heart',
-            question: 'What if we\'re not happy with the results?',
-            answer: 'Your satisfaction is our priority. We work closely with you throughout each project and offer revisions to ensure the final deliverable meets your expectations. We\'re not satisfied until you are.',
+            icon: 'arrow-right-circle',
+            question: 'What are the next steps to get started?',
+            answer: 'Schedule a consultation call with our team. We\'ll discuss your business, target market, and goals to see if we\'re a good fit. If we are, we\'ll create a proposal outlining our approach and expected results for your specific situation.',
         },
     ]
 
@@ -89,7 +83,7 @@ export default function FAQsThree() {
                         <div className="sticky top-20">
                             <h2 className="mt-4 text-3xl font-bold">FAQs</h2>
                             <p className="text-muted-foreground mt-4">
-                                Commonly asked questions about our HubSpot services
+                                Commonly asked questions
                             </p>
                         </div>
                     </div>

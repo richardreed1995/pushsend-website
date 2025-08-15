@@ -4,11 +4,11 @@ import { cn } from '../lib/utils'
 export const Logo = ({ className }: { className?: string }) => {
     return (
         <Image
-            src="/breeze.svg"
-            alt="Breeze logo"
-            height={24}
-            width={98}
-            className={cn('h-6 w-auto', className)}
+            src="/pslogo.svg"
+            alt="PushSend logo"
+            height={32}
+            width={128}
+            className={cn('h-8 w-auto', className)}
             priority
         />
     )
@@ -17,11 +17,11 @@ export const Logo = ({ className }: { className?: string }) => {
 export const LogoIcon = ({ className, uniColor }: { className?: string; uniColor?: boolean }) => {
     return (
         <Image
-            src="/breeze.svg"
-            alt="Breeze logo"
-            height={24}
-            width={24}
-            className={cn('h-6 w-6', className)}
+            src="/pslogo.svg"
+            alt="PushSend logo"
+            height={32}
+            width={32}
+            className={cn('h-8 w-8', className)}
             priority
         />
     )

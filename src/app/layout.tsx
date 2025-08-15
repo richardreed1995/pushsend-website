@@ -13,8 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Breeze | HubSpot Partner Agency",
-  description: "Breeze is a HubSpot partner agency that focuses exclusively on B2B businesses. Get expert HubSpot guidance to accelerate your growth.",
+  title: "PushSend | B2B Growth Agency",
+  description: "PushSend is a B2B growth agency that gets you meetings through personalised outreach that prospects actually respond to—and often compliment.",
+  icons: {
+    icon: '/psfavicon.svg',
+  },
 };
 
 export default function RootLayout({

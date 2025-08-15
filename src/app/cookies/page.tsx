@@ -8,7 +8,7 @@ export default function CookiesPage() {
       <main className="flex-1 w-full max-w-4xl mx-auto px-4 pt-32 pb-20">
         <article className="prose prose-lg mx-auto text-center [&_h2]:font-bold [&_h3]:font-bold">
           <div className="mb-16 flex flex-col items-center gap-6">
-            <div className="text-gray-500 text-base mb-2">12 Dec, 2024 <span className="mx-2">|</span> <span className="font-medium">Breeze Team</span></div>
+            <div className="text-gray-500 text-base mb-2">12 Dec, 2024 <span className="mx-2">|</span> <span className="font-medium">PushSend Team</span></div>
             <h1 className="text-4xl font-bold mb-2 leading-tight">Cookie Policy</h1>
             <p className="text-lg text-gray-600 max-w-2xl">We use cookies to ensure our website and platform function effectively and securely, providing you with a better experience when using our services.</p>
           </div>
@@ -39,7 +39,7 @@ export default function CookiesPage() {
                   <p><strong>PHPSESSID</strong></p>
                   <p>Purpose: Maintains your session across pages</p>
                   <p>Duration: Session</p>
-                  <p>Provider: Breeze</p>
+                  <p>Provider: PushSend</p>
                   <p>Type: Essential</p>
                 </div>
                 <div>

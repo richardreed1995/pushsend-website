@@ -20,7 +20,7 @@ export default function WhatsIncluded() {
                         <CardHeader>
                             <div className="md:p-6">
                                 <div className="flex items-center gap-3 mb-3">
-                                    <Users className="size-6 text-blue-300" />
+                                    <Users className="size-6 text-orange-500" />
                                     <p className="font-medium">Dedicated Account Manager</p>
                                 </div>
                                 <p className="text-muted-foreground mt-3 max-w-sm text-sm">Your personal growth expert who manages your campaigns and provides strategic guidance throughout your journey.</p>
@@ -79,10 +79,10 @@ export default function WhatsIncluded() {
 
                         <div className="flex justify-center gap-6">
                             <div className="inset-shadow-sm dark:inset-shadow-white/5 bg-muted/35 relative flex aspect-square size-16 items-center rounded-[7px] border p-3 shadow-lg ring dark:shadow-white/5 dark:ring-black">
-                                <BarChart3 className="mt-auto size-4 text-blue-300" />
+                                <BarChart3 className="mt-auto size-4 text-orange-500" />
                             </div>
                             <div className="inset-shadow-sm dark:inset-shadow-white/5 bg-muted/35 flex aspect-square size-16 items-center justify-center rounded-[7px] border p-3 shadow-lg ring dark:shadow-white/5 dark:ring-black">
-                                <Phone className="size-4 text-blue-300" />
+                                <Phone className="size-4 text-orange-500" />
                             </div>
                         </div>
                     </Card>
@@ -94,22 +94,22 @@ export default function WhatsIncluded() {
                         <CardContent className="relative h-fit px-6 pb-6 md:px-12 md:pb-12">
                             <div className="grid grid-cols-4 gap-2 md:grid-cols-6">
                                 <div className="rounded-(--radius) bg-muted/50 flex aspect-square items-center justify-center border p-4">
-                                    <Settings className="size-6 text-blue-300" />
+                                    <Settings className="size-6 text-orange-500" />
                                 </div>
                                 <div className="rounded-(--radius) bg-muted/50 flex aspect-square items-center justify-center border p-4">
-                                    <Target className="size-6 text-blue-300" />
+                                    <Target className="size-6 text-orange-500" />
                                 </div>
                                 <div className="rounded-(--radius) bg-muted/50 flex aspect-square items-center justify-center border p-4">
-                                    <MessageSquare className="size-6 text-blue-300" />
+                                    <MessageSquare className="size-6 text-orange-500" />
                                 </div>
                                 <div className="rounded-(--radius) bg-muted/50 flex aspect-square items-center justify-center border p-4">
-                                    <Mail className="size-6 text-blue-300" />
+                                    <Mail className="size-6 text-orange-500" />
                                 </div>
                                 <div className="rounded-(--radius) bg-muted/50 flex aspect-square items-center justify-center border p-4">
-                                    <Zap className="size-6 text-blue-300" />
+                                    <Zap className="size-6 text-orange-500" />
                                 </div>
                                 <div className="rounded-(--radius) bg-muted/50 flex aspect-square items-center justify-center border p-4">
-                                    <Shield className="size-6 text-blue-300" />
+                                    <Shield className="size-6 text-orange-500" />
                                 </div>
                             </div>
                         </CardContent>

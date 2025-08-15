@@ -1,5 +1,8 @@
 {
-  "/newsletter/page": "app/newsletter/page.js",
+  "/blog/page": "app/blog/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/downloads/page": "app/downloads/page.js",
+  "/get-started/page": "app/get-started/page.js",
   "/page": "app/page.js",
-  "/retainer/page": "app/retainer/page.js"
+  "/ppl/page": "app/ppl/page.js"
 }
