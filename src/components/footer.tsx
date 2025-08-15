@@ -67,13 +67,20 @@ export default function FooterSection() {
     const [email, setEmail] = useState("");
     const [error, setError] = useState("");
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const validateEmail = (email: string) => {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     };
 
-    const handleEmailSubmit = async () => {
+    const handleEmailSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
         setError("");
+        
+        // Prevent multiple submissions
+        if (isSubmitting) return;
+        
+        // Validate email
         if (!email.trim()) {
             return setError("Please enter your email address");
         }
@@ -81,28 +88,43 @@ export default function FooterSection() {
             return setError("Please enter a valid email address");
         }
 
-        // Send data to webhook
+        setIsSubmitting(true);
+
         try {
-            await fetch("https://hook.eu2.make.com/19t79l6rolrkfjod77hd2yr952a54ph5", {
+            // Send data to webhook only if validation passes
+            const response = await fetch("https://hook.eu2.make.com/19t79l6rolrkfjod77hd2yr952a54ph5", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: { 
+                    "Content-Type": "application/json",
+                    "X-Requested-With": "XMLHttpRequest"
+                },
                 body: JSON.stringify({
-                    email,
+                    email: email.trim(),
                     type: "newsletter-subscription",
+                    source: "footer",
                     completedAt: new Date().toISOString(),
+                    userAgent: navigator.userAgent,
+                    timestamp: Date.now(),
                 }),
             });
-        } catch (e) {
-            // Fail silently
-        }
 
-        setIsSubmitted(true);
-        setEmail("");
+            if (!response.ok) {
+                throw new Error(`Webhook failed: ${response.status}`);
+            }
+
+            setIsSubmitted(true);
+            setEmail("");
+        } catch (e) {
+            console.error("Footer newsletter error:", e);
+            setError("Something went wrong. Please try again.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const handleKeyPress = (e: React.KeyboardEvent) => {
         if (e.key === 'Enter') {
-            handleEmailSubmit();
+            handleEmailSubmit(e as any);
         }
     };
 

@@ -20,13 +20,16 @@ export default function TemplatesPage() {
     constraint: ""
   });
   const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validateEmail = (email: string) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
 
-  const handleEmailSubmit = () => {
+  const handleEmailSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
     setError("");
+    
     if (!email.trim()) {
       return setError("Please enter your email address");
     }
@@ -36,59 +39,95 @@ export default function TemplatesPage() {
     setStep(1);
   };
 
-  const handleFormSubmit = async () => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     setError("");
-    if (!formData.revenue || !formData.constraint) {
-      return setError("Please fill in all fields");
+    
+    // Prevent multiple submissions
+    if (isSubmitting) return;
+    
+    // Validate all required fields
+    if (!formData.revenue.trim() || !formData.constraint.trim()) {
+      return setError("Please fill in all required fields");
     }
 
-    // Send data to webhook
+    // Validate email again (in case it was changed)
+    if (!email.trim() || !validateEmail(email)) {
+      return setError("Please enter a valid email address");
+    }
+
+    setIsSubmitting(true);
+
     try {
-      await fetch("https://hook.eu2.make.com/xq1dvs5e98p1w88grh58skodmco254tx", {
+      // Send data to webhook only if all validation passes
+      const response = await fetch("https://hook.eu2.make.com/xq1dvs5e98p1w88grh58skodmco254tx", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest"
+        },
         body: JSON.stringify({
-          email,
+          email: email.trim(),
           formData: {
-            revenue: formData.revenue,
-            constraint: formData.constraint
+            first: formData.first.trim() || null,
+            last: formData.last.trim() || null,
+            phone: formData.phone.trim() || null,
+            website: formData.website.trim() || null,
+            revenue: formData.revenue.trim(),
+            constraint: formData.constraint.trim()
           },
           type: "templates-download",
+          source: "templates-page",
           completedAt: new Date().toISOString(),
+          userAgent: navigator.userAgent,
+          timestamp: Date.now(),
         }),
       });
-    } catch (e) {
-      // Fail silently
-    }
 
-    // Trigger download (you can replace this with actual download logic)
-    window.open("/path-to-your-templates.pdf", "_blank");
+      if (!response.ok) {
+        throw new Error(`Webhook failed: ${response.status}`);
+      }
+
+      // Trigger download only after successful webhook
+      window.open("/path-to-your-templates.pdf", "_blank");
+    } catch (e) {
+      console.error("Templates download error:", e);
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       if (step === 0) {
-        handleEmailSubmit();
+        handleEmailSubmit(e as any);
       } else {
-        handleFormSubmit();
+        handleFormSubmit(e as any);
       }
     }
+  };
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }));
   };
 
   return (
     <div className="min-h-screen bg-background">
       <HeroHeader />
-      
-      <main className="pt-16">
+      <main className="pt-24 md:pt-36">
         {/* Hero Section */}
-        <section className="relative py-20 md:py-24">
-          <div className="absolute inset-0 -z-10 size-full [background:radial-gradient(125%_125%_at_50%_100%,transparent_0%,var(--color-background)_75%)]"></div>
-          <div className="mx-auto max-w-4xl px-6 text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-            Download Our 12 Free B2B Growth Trainings
+        <section className="py-20">
+          <div className="max-w-4xl mx-auto px-6 text-center">
+            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
+              Get Your Free{" "}
+              <span className="text-orange-500">Growth Templates</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-            Get instant access to our trainings on how to build a top 0.1% B2B client acquisition funnel.
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Access our proven templates and frameworks to accelerate your business growth.
             </p>
           </div>
         </section>
@@ -98,7 +137,7 @@ export default function TemplatesPage() {
           <div className="max-w-2xl mx-auto px-6">
             {/* Step 1: Email Collection */}
             {step === 0 && (
-              <div className="bg-card rounded-3xl shadow-lg border p-6 md:p-8">
+              <form onSubmit={handleEmailSubmit} className="bg-card rounded-3xl shadow-lg border p-6 md:p-8">
                 <div className="space-y-4">
                   <div>
                     <Label className="text-base font-medium text-foreground mb-2 block">Email Address</Label>
@@ -108,38 +147,91 @@ export default function TemplatesPage() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       onKeyPress={handleKeyPress}
-                      className="text-lg p-4 h-14 border-2 focus:ring-4 focus:ring-orange-500/20 focus:border-orange-500"
+                      className="text-lg p-4 h-14 border-2 focus:ring-orange-500/20 focus:border-orange-500"
+                      required
                     />
                   </div>
                   
                   {error && <p className="text-red-500 text-center font-medium">{error}</p>}
                   
                   <Button 
-                    onClick={handleEmailSubmit}
-                    className="w-full text-lg py-4 h-14 bg-orange-500 text-white hover:bg-orange-600 font-semibold"
+                    type="submit"
+                    disabled={!email.trim()}
+                    className="w-full text-lg py-4 h-14 bg-orange-500 text-white hover:bg-orange-600 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <Download className="mr-2 h-5 w-5" />
                     Get Free Downloads
                   </Button>
                 </div>
-              </div>
+              </form>
             )}
 
             {/* Step 2: Detailed Form */}
             {step === 1 && (
-              <div className="bg-card rounded-3xl shadow-lg border p-6 md:p-8">
-                <div className="text-center mb-6">
-                  <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">Almost there!</h2>
-                  <p className="text-base text-muted-foreground">Help us personalize your experience and deliver the most relevant templates</p>
-                </div>
-                
-                <div className="space-y-4">
+              <form onSubmit={handleFormSubmit} className="bg-card rounded-3xl shadow-lg border p-6 md:p-8">
+                <div className="space-y-6">
+                  <div className="text-center mb-6">
+                    <h3 className="text-xl font-semibold text-foreground">Tell us about your business</h3>
+                    <p className="text-muted-foreground">This helps us personalize your templates</p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <Label className="text-sm font-medium text-foreground mb-2 block">First Name</Label>
+                      <Input
+                        type="text"
+                        placeholder="John"
+                        value={formData.first}
+                        onChange={(e) => handleInputChange('first', e.target.value)}
+                        className="focus:ring-orange-500/20 focus:border-orange-500"
+                      />
+                    </div>
+                    
+                    <div>
+                      <Label className="text-sm font-medium text-foreground mb-2 block">Last Name</Label>
+                      <Input
+                        type="text"
+                        placeholder="Doe"
+                        value={formData.last}
+                        onChange={(e) => handleInputChange('last', e.target.value)}
+                        className="focus:ring-orange-500/20 focus:border-orange-500"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <Label className="text-sm font-medium text-foreground mb-2 block">Phone Number</Label>
+                      <Input
+                        type="tel"
+                        placeholder="+1 (555) 123-4567"
+                        value={formData.phone}
+                        onChange={(e) => handleInputChange('phone', e.target.value)}
+                        className="focus:ring-orange-500/20 focus:border-orange-500"
+                      />
+                    </div>
+                    
+                    <div>
+                      <Label className="text-sm font-medium text-foreground mb-2 block">Website</Label>
+                      <Input
+                        type="url"
+                        placeholder="https://yourcompany.com"
+                        value={formData.website}
+                        onChange={(e) => handleInputChange('website', e.target.value)}
+                        className="focus:ring-orange-500/20 focus:border-orange-500"
+                      />
+                    </div>
+                  </div>
+
                   <div>
-                    <Label className="text-sm font-medium text-foreground mb-2 block">Annual revenue</Label>
+                    <Label className="text-sm font-medium text-foreground mb-2 block">
+                      Annual Revenue <span className="text-red-500">*</span>
+                    </Label>
                     <select
                       value={formData.revenue}
-                      onChange={(e) => setFormData({ ...formData, revenue: e.target.value })}
-                      className="w-full p-3 h-12 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 bg-background"
+                      onChange={(e) => handleInputChange('revenue', e.target.value)}
+                      className="w-full p-3 border border-gray-300 rounded-md focus:ring-orange-500/20 focus:border-orange-500"
+                      required
                     >
                       <option value="">Select your annual revenue</option>
                       <option value="under-100k">Under $100k</option>
@@ -147,39 +239,61 @@ export default function TemplatesPage() {
                       <option value="500k-1m">$500k - $1M</option>
                       <option value="1m-5m">$1M - $5M</option>
                       <option value="5m-10m">$5M - $10M</option>
-                      <option value="10m+">$10M+</option>
+                      <option value="over-10m">Over $10M</option>
                     </select>
                   </div>
-                  
+
                   <div>
-                    <Label className="text-sm font-medium text-foreground mb-2 block">Biggest growth constraint</Label>
+                    <Label className="text-sm font-medium text-foreground mb-2 block">
+                      Biggest Challenge <span className="text-red-500">*</span>
+                    </Label>
                     <select
                       value={formData.constraint}
-                      onChange={(e) => setFormData({ ...formData, constraint: e.target.value })}
-                      className="w-full p-3 h-12 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 bg-background"
+                      onChange={(e) => handleInputChange('constraint', e.target.value)}
+                      className="w-full p-3 border border-gray-300 rounded-md focus:ring-orange-500/20 focus:border-orange-500"
+                      required
                     >
-                      <option value="">Select your biggest constraint</option>
+                      <option value="">Select your biggest challenge</option>
                       <option value="lead-generation">Lead Generation</option>
-                      <option value="conversion-rate">Conversion Rate</option>
-                      <option value="sales-process">Sales Process</option>
-                      <option value="team-scaling">Team Scaling</option>
-                      <option value="marketing-budget">Marketing Budget</option>
-                      <option value="brand-awareness">Brand Awareness</option>
+                      <option value="conversion-rates">Conversion Rates</option>
+                      <option value="scaling-operations">Scaling Operations</option>
+                      <option value="team-building">Team Building</option>
+                      <option value="process-automation">Process Automation</option>
                       <option value="other">Other</option>
                     </select>
                   </div>
-                  
+
                   {error && <p className="text-red-500 text-center font-medium">{error}</p>}
                   
-                  <Button 
-                    onClick={handleFormSubmit}
-                    className="w-full text-lg py-4 h-14 bg-orange-500 text-white hover:bg-orange-600 font-semibold"
-                  >
-                    <Download className="mr-2 h-5 w-5" />
-                    Download Templates
-                  </Button>
+                  <div className="flex gap-4">
+                    <Button 
+                      type="button"
+                      onClick={() => setStep(0)}
+                      variant="outline"
+                      className="flex-1"
+                    >
+                      Back
+                    </Button>
+                    <Button 
+                      type="submit"
+                      disabled={isSubmitting || !formData.revenue || !formData.constraint}
+                      className="flex-1 bg-orange-500 text-white hover:bg-orange-600 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                          Processing...
+                        </>
+                      ) : (
+                        <>
+                          <Download className="mr-2 h-4 w-4" />
+                          Get Your Templates
+                        </>
+                      )}
+                    </Button>
+                  </div>
                 </div>
-              </div>
+              </form>
             )}
           </div>
         </section>

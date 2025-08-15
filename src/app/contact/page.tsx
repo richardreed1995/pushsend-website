@@ -26,8 +26,8 @@ export default function ContactPage() {
     setIsSubmitting(true);
     setError("");
 
-    // Basic validation
-    if (!formData.firstName || !formData.lastName || !formData.email) {
+    // Comprehensive validation
+    if (!formData.firstName.trim() || !formData.lastName.trim() || !formData.email.trim()) {
       setError("Please fill in all required fields");
       setIsSubmitting(false);
       return;
@@ -41,23 +41,50 @@ export default function ContactPage() {
       return;
     }
 
+    // Phone validation (optional but if provided, should be valid)
+    if (formData.phone.trim() && !/^[\+]?[1-9][\d]{0,15}$/.test(formData.phone.replace(/[\s\-\(\)]/g, ''))) {
+      setError("Please enter a valid phone number");
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Message validation (optional but if provided, should have minimum length)
+    if (formData.message.trim() && formData.message.trim().length < 10) {
+      setError("Message must be at least 10 characters long");
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
-      // Send data to webhook (you can replace this with your actual endpoint)
-      await fetch("https://hook.eu2.make.com/xq1dvs5e98p1w88grh58skodmco254tx", {
+      // Send data to webhook only if all validation passes
+      const response = await fetch("https://hook.eu2.make.com/xq1dvs5e98p1w88grh58skodmco254tx", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest"
+        },
         body: JSON.stringify({
-          ...formData,
+          firstName: formData.firstName.trim(),
+          lastName: formData.lastName.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim() || null,
+          message: formData.message.trim() || null,
           type: "contact-form",
-          source: "pushsend-website",
+          source: "contact-page",
           completedAt: new Date().toISOString(),
           userAgent: navigator.userAgent,
           timestamp: Date.now(),
+          ipAddress: "client-side", // Will be captured server-side if needed
         }),
       });
+
+      if (!response.ok) {
+        throw new Error(`Webhook failed: ${response.status}`);
+      }
       
       setIsSubmitted(true);
     } catch (err) {
+      console.error("Contact form error:", err);
       setError("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
@@ -102,126 +129,133 @@ export default function ContactPage() {
     <div className="min-h-screen bg-background">
       <HeroHeader />
       <main className="pt-24 md:pt-36">
-        <div className="max-w-2xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Contact Us
+        {/* Hero Section */}
+        <section className="py-20">
+          <div className="max-w-4xl mx-auto px-6 text-center">
+            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
+              Let's Build Something{" "}
+              <span className="text-orange-500">Amazing</span>
             </h1>
-            <p className="text-lg text-muted-foreground">
-              Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Ready to scale your business? Get in touch and let's discuss how we can help you achieve your growth goals.
             </p>
           </div>
+        </section>
 
-          <div className="bg-card rounded-3xl shadow-lg border p-6 md:p-8">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+        {/* Form Section */}
+        <section className="py-0 pb-20">
+          <div className="max-w-2xl mx-auto px-6">
+            <form onSubmit={handleSubmit} className="bg-card rounded-3xl shadow-lg border p-6 md:p-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <Label htmlFor="firstName" className="text-sm font-medium text-foreground">
-                    First Name *
+                  <Label htmlFor="firstName" className="text-base font-medium text-foreground mb-2 block">
+                    First Name <span className="text-red-500">*</span>
                   </Label>
-                  <div className="relative mt-2">
-                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                    <Input
-                      id="firstName"
-                      name="firstName"
-                      type="text"
-                      value={formData.firstName}
-                      onChange={handleChange}
-                      className="pl-10 h-12"
-                      placeholder="John"
-                      required
-                    />
-                  </div>
+                  <Input
+                    id="firstName"
+                    name="firstName"
+                    type="text"
+                    placeholder="John"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    className="text-lg p-4 h-14 border-2 focus:ring-orange-500/20 focus:border-orange-500"
+                    required
+                    disabled={isSubmitting}
+                  />
                 </div>
-
+                
                 <div>
-                  <Label htmlFor="lastName" className="text-sm font-medium text-foreground">
-                    Last Name *
+                  <Label htmlFor="lastName" className="text-base font-medium text-foreground mb-2 block">
+                    Last Name <span className="text-red-500">*</span>
                   </Label>
-                  <div className="relative mt-2">
-                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                    <Input
-                      id="lastName"
-                      name="lastName"
-                      type="text"
-                      value={formData.lastName}
-                      onChange={handleChange}
-                      className="pl-10 h-12"
-                      placeholder="Doe"
-                      required
-                    />
-                  </div>
+                  <Input
+                    id="lastName"
+                    name="lastName"
+                    type="text"
+                    placeholder="Doe"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    className="text-lg p-4 h-14 border-2 focus:ring-orange-500/20 focus:border-orange-500"
+                    required
+                    disabled={isSubmitting}
+                  />
                 </div>
               </div>
 
-              <div>
-                <Label htmlFor="email" className="text-sm font-medium text-foreground">
-                  Email Address *
-                </Label>
-                <div className="relative mt-2">
-                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <Label htmlFor="email" className="text-base font-medium text-foreground mb-2 block">
+                    Email Address <span className="text-red-500">*</span>
+                  </Label>
                   <Input
                     id="email"
                     name="email"
                     type="email"
+                    placeholder="john@company.com"
                     value={formData.email}
                     onChange={handleChange}
-                    className="pl-10 h-12"
-                    placeholder="john@company.com"
+                    className="text-lg p-4 h-14 border-2 focus:ring-orange-500/20 focus:border-orange-500"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
-              </div>
-
-              <div>
-                <Label htmlFor="phone" className="text-sm font-medium text-foreground">
-                  Phone Number
-                </Label>
-                <div className="relative mt-2">
-                  <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                
+                <div>
+                  <Label htmlFor="phone" className="text-base font-medium text-foreground mb-2 block">
+                    Phone Number
+                  </Label>
                   <Input
                     id="phone"
                     name="phone"
                     type="tel"
+                    placeholder="+1 (555) 123-4567"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="pl-10 h-12"
-                    placeholder="+1 (555) 123-4567"
+                    className="text-lg p-4 h-14 border-2 focus:ring-orange-500/20 focus:border-orange-500"
+                    disabled={isSubmitting}
                   />
                 </div>
               </div>
 
-              <div>
-                <Label htmlFor="message" className="text-sm font-medium text-foreground">
+              <div className="mb-6">
+                <Label htmlFor="message" className="text-base font-medium text-foreground mb-2 block">
                   Message
                 </Label>
                 <Textarea
                   id="message"
                   name="message"
+                  placeholder="Tell us about your business and how we can help..."
                   value={formData.message}
                   onChange={handleChange}
-                  className="mt-2 min-h-[120px]"
-                  placeholder="How can we help you?"
+                  className="text-lg p-4 border-2 focus:ring-orange-500/20 focus:border-orange-500 min-h-[120px] resize-none"
+                  disabled={isSubmitting}
                 />
               </div>
 
-              {error && (
-                <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-                  <p className="text-red-600 text-sm">{error}</p>
-                </div>
-              )}
-
-              <Button
+              {error && <p className="text-red-500 text-center font-medium mb-6">{error}</p>}
+              
+              <Button 
                 type="submit"
-                disabled={isSubmitting}
-                className="w-full h-12 bg-orange-500 text-white hover:bg-orange-600 font-semibold"
+                disabled={isSubmitting || !formData.firstName.trim() || !formData.lastName.trim() || !formData.email.trim()}
+                className="w-full text-lg py-4 h-14 bg-orange-500 text-white hover:bg-orange-600 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isSubmitting ? "Sending..." : "Send Message"}
+                {isSubmitting ? (
+                  <>
+                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                    Sending Message...
+                  </>
+                ) : (
+                  <>
+                    <Mail className="mr-2 h-5 w-5" />
+                    Send Message
+                  </>
+                )}
               </Button>
             </form>
           </div>
-        </div>
+        </section>
       </main>
+
       <Footer />
     </div>
   );
