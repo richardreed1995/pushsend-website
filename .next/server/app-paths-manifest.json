@@ -1,25 +1,4 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/about/page": "app/about/page.js",
-  "/blog/ai-outbound-messages/page": "app/blog/ai-outbound-messages/page.js",
-  "/contact/page": "app/contact/page.js",
-  "/downloads/page": "app/downloads/page.js",
-  "/blog/page": "app/blog/page.js",
-  "/get-started/page": "app/get-started/page.js",
-  "/guide/page": "app/guide/page.js",
-  "/get-started-intro/page": "app/get-started-intro/page.js",
-  "/newsletter/page": "app/newsletter/page.js",
   "/page": "app/page.js",
-  "/blog/hire-lead-generation-agency/page": "app/blog/hire-lead-generation-agency/page.js",
-  "/cookies/page": "app/cookies/page.js",
-  "/letter/page": "app/letter/page.js",
-  "/intro/page": "app/intro/page.js",
-  "/success/page": "app/success/page.js",
-  "/privacy/page": "app/privacy/page.js",
-  "/templates/page": "app/templates/page.js",
-  "/ppl/page": "app/ppl/page.js",
-  "/retainer/page": "app/retainer/page.js",
-  "/terms/page": "app/terms/page.js",
-  "/blog/cold-email-infrastructure/page": "app/blog/cold-email-infrastructure/page.js"
+  "/retainer-us/page": "app/retainer-us/page.js"
 }
