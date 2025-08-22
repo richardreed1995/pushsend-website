@@ -46,7 +46,7 @@ export default function HeroSection() {
                                 preset="fade-in-blur"
                                 speedSegment={0.3}
                                 as="h1"
-                                className="mt-4 sm:mt-8 text-balance text-4xl font-semibold sm:text-4xl md:text-6xl lg:mt-16 lg:text-7xl xl:text-[5.25rem]">
+                                className="mt-4 sm:mt-8 text-balance text-4xl font-semibold sm:text-4xl md:text-6xl md:font-normal lg:mt-16 lg:text-7xl xl:text-[5.25rem]">
                                 Generate More B2B Sales Conversations Every Month
                             </TextEffect>
                             <TextEffect
