@@ -81,7 +81,7 @@ export default function NewsletterPage() {
           <div className="max-w-4xl mx-auto px-6 text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
               Stay Ahead with Our{" "}
-              <span className="text-[#A8FF9E]">Growth Newsletter</span>
+              <span className="text-foreground">Growth Newsletter</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               Get weekly insights on lead generation, automation, and business growth strategies that actually work.
@@ -103,7 +103,7 @@ export default function NewsletterPage() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       onKeyPress={handleKeyPress}
-                      className="text-lg p-4 h-14 border-2 focus:ring-4 focus:ring-[#A8FF9E]/20 focus:border-[#A8FF9E]"
+                      className="text-lg p-4 h-14 border-2 focus:ring-4 focus:ring-orange-500/20 focus:border-orange-500"
                       required
                       disabled={isSubmitting}
                     />
@@ -114,7 +114,7 @@ export default function NewsletterPage() {
                   <Button 
                     type="submit"
                     disabled={isSubmitting || !email.trim()}
-                    className="w-full text-lg py-4 h-14 bg-[#A8FF9E] text-black hover:bg-[#A8FF9E]/90 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full text-lg py-4 h-14 bg-orange-500 text-black hover:bg-orange-600 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? (
                       <>
@@ -133,7 +133,7 @@ export default function NewsletterPage() {
             ) : (
               <div className="bg-card rounded-3xl shadow-lg border p-6 md:p-8">
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-[#A8FF9E] rounded-full flex items-center justify-center mx-auto mb-6">
+                  <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6">
                     <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
@@ -149,7 +149,7 @@ export default function NewsletterPage() {
                         setIsSubmitted(false);
                         setEmail("");
                       }}
-                      className="text-[#A8FF9E] hover:underline"
+                      className="text-orange-500 hover:underline"
                     >
                       try again
                     </button>

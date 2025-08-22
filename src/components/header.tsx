@@ -177,33 +177,34 @@ export const HeroHeader = () => {
                         <button
                             onClick={() => setMenuState(!menuState)}
                             aria-label={menuState == true ? 'Close Menu' : 'Open Menu'}
-                            className="relative z-20 -m-2.5 block cursor-pointer p-2.5 lg:hidden">
+                            className="relative z-20 -m-2.5 block cursor-pointer p-2.5 lg:hidden hover:bg-muted/50 rounded-lg transition-colors">
                             <Menu className="in-data-[state=active]:rotate-180 in-data-[state=active]:scale-0 in-data-[state=active]:opacity-0 m-auto size-6 duration-200" />
                             <X className="in-data-[state=active]:rotate-0 in-data-[state=active]:scale-100 in-data-[state=active]:opacity-100 absolute inset-0 m-auto size-6 -rotate-180 scale-0 opacity-0 duration-200" />
                         </button>
 
                         {/* Mobile Menu */}
-                        <div className="bg-background in-data-[state=active]:block lg:in-data-[state=active]:flex mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border p-6 shadow-2xl shadow-zinc-300/20 md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none dark:shadow-none dark:lg:bg-transparent">
+                        <div className="bg-background in-data-[state=active]:block lg:in-data-[state=active]:flex mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border p-6 shadow-2xl shadow-zinc-300/20 md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none dark:shadow-none dark:lg:bg-transparent absolute top-full left-0 right-0 mt-2 transition-all duration-300 ease-in-out">
                             <div className="lg:hidden w-full">
-                                <ul className="space-y-6 text-base">
+                                {/* Mobile Navigation Items */}
+                                <ul className="space-y-6 text-base mb-8">
                                     {navigationItems.map((item, index) => (
                                         <li key={index}>
                                             {item.hasDropdown ? (
                                                 <div>
                                                     <button
                                                         onClick={() => handleDropdownToggle(item.name)}
-                                                        className="text-muted-foreground hover:text-accent-foreground flex items-center justify-between w-full duration-150"
+                                                        className="text-muted-foreground hover:text-accent-foreground flex items-center justify-between w-full duration-150 py-2"
                                                     >
-                                                        <span>{item.name}</span>
+                                                        <span className="text-lg font-medium">{item.name}</span>
                                                         {activeDropdown === item.name ? (
-                                                            <ChevronUp className="size-4" />
+                                                            <ChevronUp className="size-5" />
                                                         ) : (
-                                                            <ChevronDown className="size-4" />
+                                                            <ChevronDown className="size-5" />
                                                         )}
                                                     </button>
                                                     
                                                     {activeDropdown === item.name && (
-                                                        <div className="mt-4 ml-4 space-y-3">
+                                                        <div className="mt-4 ml-4 space-y-3 border-l-2 border-muted pl-4">
                                                             {item.items?.map((subItem, subIndex) => {
                                                                 const IconComponent = subItem.icon
                                                                 return (
@@ -211,6 +212,7 @@ export const HeroHeader = () => {
                                                                         key={subIndex}
                                                                         href={subItem.href}
                                                                         className="flex items-center gap-3 rounded-lg p-3 transition-colors hover:bg-muted/50"
+                                                                        onClick={() => setMenuState(false)}
                                                                     >
                                                                         <IconComponent className="size-5 text-muted-foreground" />
                                                                         <div>
@@ -226,13 +228,28 @@ export const HeroHeader = () => {
                                             ) : (
                                                 <Link
                                                     href={item.href}
-                                                    className="text-muted-foreground hover:text-accent-foreground block duration-150">
+                                                    className="text-muted-foreground hover:text-accent-foreground block duration-150 py-2 text-lg font-medium"
+                                                    onClick={() => setMenuState(false)}
+                                                >
                                                     <span>{item.name}</span>
                                                 </Link>
                                             )}
                                         </li>
                                     ))}
                                 </ul>
+                                
+                                {/* Mobile CTA Button */}
+                                <div className="pt-4 border-t border-muted">
+                                    <Button
+                                        asChild
+                                        size="lg"
+                                        className="w-full bg-orange-500 text-white hover:bg-orange-600 text-lg py-6 font-semibold"
+                                    >
+                                        <Link href="/get-started" onClick={() => setMenuState(false)}>
+                                            Get Started
+                                        </Link>
+                                    </Button>
+                                </div>
                             </div>
                         </div>
                     </div>

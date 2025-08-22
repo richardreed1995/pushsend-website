@@ -78,6 +78,33 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+/* Calendly Widget Styles */
+#calendly-inline-widget {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+}
+
+#calendly-inline-widget iframe {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  border: none !important;
+}
+
+/* Ensure Calendly widget is responsive on mobile */
+@media (max-width: 768px) {
+  #calendly-inline-widget {
+    height: 1200px !important;
+    min-height: 1200px !important;
+  }
+  
+  #calendly-inline-widget iframe {
+    height: 1200px !important;
+    min-height: 1200px !important;
+  }
+}
+
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);

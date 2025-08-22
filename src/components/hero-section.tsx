@@ -46,7 +46,7 @@ export default function HeroSection() {
                                 preset="fade-in-blur"
                                 speedSegment={0.3}
                                 as="h1"
-                                className="mt-8 text-balance text-6xl md:text-7xl lg:mt-16 xl:text-[5.25rem]">
+                                className="mt-4 sm:mt-8 text-balance text-4xl font-semibold sm:text-4xl md:text-6xl lg:mt-16 lg:text-7xl xl:text-[5.25rem]">
                                 Generate More B2B Sales Conversations Every Month
                             </TextEffect>
                             <TextEffect
@@ -55,7 +55,7 @@ export default function HeroSection() {
                                 speedSegment={0.3}
                                 delay={0.5}
                                 as="p"
-                                className="mx-auto mt-8 max-w-2xl text-balance text-lg">
+                                className="mx-auto mt-8 max-w-2xl text-balance text-base sm:text-lg">
                                 We identify your ideal prospects and craft personalised outreach campaigns that get them excited to speak with your sales team.
                             </TextEffect>
 

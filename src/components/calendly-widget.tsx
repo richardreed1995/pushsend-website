@@ -66,5 +66,12 @@ export function CalendlyWidget() {
     }
   }, [])
 
-  return <div ref={widgetRef} id="calendly-inline-widget" style={{ minWidth: "100%", height: "700px" }} />
+  return (
+    <div 
+      ref={widgetRef} 
+      id="calendly-inline-widget" 
+      className="w-full h-full min-h-full" 
+      style={{ minWidth: "100%" }} 
+    />
+  )
 } 
