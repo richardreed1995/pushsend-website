@@ -20,7 +20,7 @@ function PPLCalculator() {
 
   const [monthlyRevenue, setMonthlyRevenue] = useState('')
   const [retentionMonths, setRetentionMonths] = useState('')
-  const [costPerLead, setCostPerLead] = useState('200')
+  const [costPerLead, setCostPerLead] = useState('250')
   const [targetMeetings, setTargetMeetings] = useState('10')
   const [closeRate, setCloseRate] = useState('33')
   const [grossProfitMargin, setGrossProfitMargin] = useState('')
@@ -66,7 +66,7 @@ function PPLCalculator() {
     if (searchParams) {
       const revenue = searchParams.get('revenue') || ''
       const retention = searchParams.get('retention') || ''
-      const costPerLeadParam = searchParams.get('costPerLead') || '200'
+      const costPerLeadParam = searchParams.get('costPerLead') || '250'
       const meetings = searchParams.get('meetings') || '10'
       const closeRateParam = searchParams.get('closeRate') || '33'
       const grossProfitMarginParam = searchParams.get('grossProfitMargin') || ''
@@ -241,7 +241,7 @@ function PPLCalculator() {
                     setMonthlyRevenue(value)
                     updateURL({ revenue: value })
                   }}
-                  placeholder="£0"
+                  placeholder="$0"
                   className="focus:ring-orange-200 focus:border-orange-500"
                 />
               </div>
@@ -265,7 +265,7 @@ function PPLCalculator() {
               
               <div>
                 <label className="block text-gray-700 mb-2 font-medium">
-                  Investment per Meeting-Ready Lead
+                  Meeting-ready lead cost
                 </label>
                 <Input
                   type="text"
@@ -343,27 +343,27 @@ function PPLCalculator() {
               
               <div className="bg-gray-50 p-4 rounded flex justify-between items-center">
                 <span className="text-gray-700 font-medium">New Monthly Revenue</span>
-                <span className="font-semibold text-gray-900">£{metrics.newMonthlyRevenue.toLocaleString()}</span>
+                <span className="font-semibold text-gray-900">${metrics.newMonthlyRevenue.toLocaleString()}</span>
               </div>
               
               <div className="bg-gray-50 p-4 rounded flex justify-between items-center">
                 <span className="text-gray-700 font-medium">LTV</span>
-                <span className="font-semibold text-gray-900">£{metrics.ltv.toLocaleString()}</span>
+                <span className="font-semibold text-gray-900">${metrics.ltv.toLocaleString()}</span>
               </div>
               
               <div className="bg-gray-50 p-4 rounded flex justify-between items-center">
                 <span className="text-gray-700 font-medium">Combined LTV</span>
-                <span className="font-semibold text-gray-900">£{metrics.combinedLTV.toLocaleString()}</span>
+                <span className="font-semibold text-gray-900">${metrics.combinedLTV.toLocaleString()}</span>
               </div>
               
               <div className="bg-gray-50 p-4 rounded flex justify-between items-center">
                 <span className="text-gray-700 font-medium">LTGP</span>
-                <span className="font-semibold text-gray-900">£{metrics.ltgp.toLocaleString()}</span>
+                <span className="font-semibold text-gray-900">${metrics.ltgp.toLocaleString()}</span>
               </div>
               
               <div className="bg-gray-50 p-4 rounded flex justify-between items-center">
                 <span className="text-gray-700 font-medium">CAC</span>
-                <span className="font-semibold text-gray-900">£{metrics.cac.toLocaleString()}</span>
+                <span className="font-semibold text-gray-900">${metrics.cac.toLocaleString()}</span>
               </div>
               
               <div className={`p-4 rounded flex justify-between items-center ${
@@ -402,7 +402,7 @@ function PPLCalculator() {
                 <div className="space-y-2">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600">Onboarding & Strategy Investment</span>
-                    <span className="font-semibold">£{onboardingFee.toLocaleString()}</span>
+                    <span className="font-semibold">${onboardingFee.toLocaleString()}</span>
                   </div>
                 </div>
               </div>
@@ -412,16 +412,16 @@ function PPLCalculator() {
                 <div className="space-y-2">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600">Software Investment</span>
-                    <span className="font-semibold">£{monthlySoftwareFee.toLocaleString()}</span>
+                    <span className="font-semibold">${monthlySoftwareFee.toLocaleString()}</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600">Meeting-Ready Leads</span>
-                    <span className="font-semibold">£{metrics.totalLeadCost.toLocaleString()}</span>
+                    <span className="font-semibold">${metrics.totalLeadCost.toLocaleString()}</span>
                   </div>
                   <div className="border-t pt-2 mt-2">
                     <div className="flex justify-between items-center font-semibold text-gray-800">
                       <span>Total Monthly Investment</span>
-                      <span>£{metrics.totalMonthlyCost.toLocaleString()}</span>
+                      <span>${metrics.totalMonthlyCost.toLocaleString()}</span>
                     </div>
                   </div>
                 </div>
@@ -463,8 +463,23 @@ function PPLCalculator() {
           <p className="text-lg text-gray-600 text-center mb-8">
             Ready to get started? Schedule a strategy call to discuss your specific needs.
           </p>
-          <div className="w-full">
+          <div className="w-full mb-8">
             <CalendlyWidget />
+          </div>
+          
+          <div className="text-center">
+            <p className="text-lg text-gray-600 mb-4">
+              Prefer to move ahead directly? Email us at{' '}
+              <a 
+                href="mailto:richard@pushsend.co" 
+                className="text-orange-500 hover:text-orange-600 font-semibold underline"
+              >
+                richard@pushsend.co
+              </a>
+            </p>
+            <p className="text-sm text-gray-500">
+              We'll get back to you within 24 hours to discuss your campaign requirements.
+            </p>
           </div>
         </div>
         
