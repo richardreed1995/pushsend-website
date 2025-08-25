@@ -56,11 +56,26 @@ const posts = [
   }
 ];
 
+// Helper function to parse date strings like "15 Jan, 2025"
+const parseDate = (dateStr: string) => {
+  const months: { [key: string]: number } = {
+    'Jan': 0, 'Feb': 1, 'Mar': 2, 'Apr': 3, 'May': 4, 'Jun': 5,
+    'Jul': 6, 'Aug': 7, 'Sep': 8, 'Oct': 9, 'Nov': 10, 'Dec': 11
+  };
+  
+  const parts = dateStr.split(' ');
+  const day = parseInt(parts[0]);
+  const month = months[parts[1]];
+  const year = parseInt(parts[2]);
+  
+  return new Date(year, month, day);
+};
+
 // Sort posts by date (newest first)
 const sortedPosts = posts.sort((a, b) => {
-  const dateA = new Date(a.date);
-  const dateB = new Date(b.date);
-  return dateB - dateA;
+  const dateA = parseDate(a.date);
+  const dateB = parseDate(b.date);
+  return dateB.getTime() - dateA.getTime();
 });
 
 export default function BlogList() {
