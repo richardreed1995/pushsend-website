@@ -29,7 +29,7 @@ export default function SuccessPage() {
         <p className="text-gray-500 text-sm">Please wait 5 seconds for the calendar to load below.</p>
       </div>
 
-      <div className="px-4 flex-1">
+      <div className="w-full px-4 h-[1200px] md:h-[700px]">
         <CalendlyWidget />
       </div>
     </div>
