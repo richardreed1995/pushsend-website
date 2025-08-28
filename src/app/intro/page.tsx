@@ -6,6 +6,9 @@ import FAQsIntro from "@/components/faqs-intro";
 import CTAIntro from "@/components/cta-intro";
 import FooterIntro from "@/components/footer-intro";
 import { HeroHeaderIntro } from "@/components/header-intro";
+import ResultsSection from "@/components/results-section";
+import CostComparison from "@/components/cost-comparison";
+import FinalCTA from "@/components/final-cta";
 
 export default function IntroPage() {
   return (
@@ -14,8 +17,11 @@ export default function IntroPage() {
       <main className="flex-1 flex flex-col">
         <HeroSectionIntro />
         <BenefitsIntro />
+        <ResultsSection />
         <AutomationFlows />
         <TestimonialsIntro />
+        <CostComparison />
+        <FinalCTA />
         <FAQsIntro />
         <CTAIntro />
       </main>

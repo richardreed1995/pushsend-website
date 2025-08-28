@@ -1,13 +1,10 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-export default function CTAIntro() {
+export default function FinalCTA() {
   return (
-    <section className="py-24 bg-black">
+    <section className="py-16 bg-white">
       <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
-        <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-8">
-          Ready to transform your business with a complete outbound lead generation system?
-        </h2>
         <div className="mt-12">
           <Link href="/get-started-intro">
             <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-12 py-6 text-xl font-semibold shadow-lg">
@@ -18,4 +15,4 @@ export default function CTAIntro() {
       </div>
     </section>
   );
-} 
+}

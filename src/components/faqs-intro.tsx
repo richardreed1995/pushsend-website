@@ -5,32 +5,32 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "What exactly do I get with the 5 automation flows?",
-    answer: "You get complete automation systems for Acquisition, Conversion, Onboarding, Fulfilment, and Retention - all built specifically for your business and fully integrated with your existing tools."
+    question: "What exactly do I get with the outbound lead generation system?",
+    answer: "You get a complete outbound system including professional sending infrastructure, a qualified prospect list of 10,000 contacts, personalized email sequences, and automated meeting booking - all set up and launched within 30 days."
   },
   {
     question: "How long does implementation take?",
-    answer: "Most systems are implemented within 30 days. We work quickly to get you seeing results fast, with some automations going live within the first week."
+    answer: "The complete system is set up and launched within 30 days. We work quickly to get you seeing results fast, with the campaign going live within the first week."
   },
   {
-    question: "What tools do you work with?",
-    answer: "We use enterprise-grade platforms like Make, N8n, and custom code solutions. These integrate seamlessly with your existing CRM, project management, accounting, and communication tools."
+    question: "What tools do you use for the system?",
+    answer: "We use enterprise-grade email infrastructure, advanced prospecting tools, and AI-powered research to ensure maximum deliverability and effectiveness for your campaigns."
   },
   {
-    question: "Do I need technical knowledge to run these?",
-    answer: "No technical knowledge required. We provide comprehensive training and ongoing support. Your team will be confident using the systems within days."
+    question: "Do I need technical knowledge to run this?",
+    answer: "No technical knowledge required. We handle all the setup, and the system runs automatically. Your only job is to attend the meetings that get booked into your calendar."
   },
   {
     question: "What if I need changes or updates later?",
-    answer: "We provide ongoing support and can make adjustments as your business grows. The systems are designed to scale with you."
+    answer: "We provide ongoing support and can make adjustments as your business grows. The system is designed to scale with you and can be optimized based on performance."
   },
   {
-    question: "Will this work for my specific type of service business?",
-    answer: "Yes, our systems are designed specifically for B2B service businesses like agencies, consultancies, and professional services. We customize everything to your specific needs."
+    question: "Will this work for my specific type of B2B business?",
+    answer: "Yes, our system is designed specifically for B2B service businesses. We customize the prospect targeting and messaging to your specific industry and ideal customer profile."
   },
   {
     question: "What's the investment?",
-    answer: "Full pricing is revealed in the video above. Schedule your call to discuss your specific needs and get a custom quote."
+    answer: "Full pricing is revealed in the video above. Schedule your call to discuss your specific needs and get a custom quote for your outbound lead generation system."
   }
 ];
 

@@ -1,39 +1,44 @@
 import { Button } from "@/components/ui/button";
-import { TextEffect } from "@/components/ui/text-effect";
 import LogoCloud from "@/components/logo-cloud";
 import Link from "next/link";
 
 export default function HeroSectionIntro() {
   return (
-    <section className="relative overflow-hidden bg-background py-20 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-background py-8 sm:py-12 lg:py-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
-          <div className="mb-8">
-            <TextEffect
-              className="text-2xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl leading-tight"
-            >
-              Get 5 Complete Business Automation Systems Built & Installed In Your Business - In Just 30 Days!
-            </TextEffect>
+          {/* Trust Indicator Tab */}
+          <div className="mb-6 sm:mb-8 lg:mb-10">
+            <div className="inline-flex items-center gap-1 sm:gap-2 bg-gray-100 px-2 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm text-gray-700">
+              <span className="text-yellow-500">★★★★★</span>
+              <span>Trusted by 20+ B2B Businesses</span>
+            </div>
           </div>
-          <p className="text-lg leading-8 text-muted-foreground mb-8">
-            We'll set up automated systems that take care of 5 key areas of your business for a one-time payment. More profits, less stress, and more free time!
+          
+          <div className="mb-4 sm:mb-6 lg:mb-8">
+            <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl leading-tight">
+              We'll Set Up & Launch a Complete Outbound Lead Generation System for Your B2B Business in Just 30 Days.
+            </h1>
+          </div>
+          <p className="text-base leading-6 sm:leading-8 text-muted-foreground mb-4 sm:mb-6 lg:mb-8 sm:text-lg lg:text-xl">
+            We build the system, contact 10,000 qualified prospects, and book meetings directly into your calendar without you lifting a finger.
           </p>
-          <p className="text-lg leading-8 text-muted-foreground mb-12">
-            Watch this video for all the details and price, then schedule your call!
+          <p className="text-xs leading-5 sm:leading-8 text-muted-foreground mb-6 sm:mb-8 lg:mb-12 sm:text-sm lg:text-base italic">
+            Watch this video for all details & pricing, then schedule your call on the next page:
           </p>
           
-          <div className="flex justify-center mb-12">
+          <div className="mb-6 sm:mb-8 lg:mb-12">
+            <div className="aspect-video w-full max-w-4xl mx-auto bg-gray-100 rounded-lg flex items-center justify-center">
+              <p className="text-gray-500">Wistia Video Embed</p>
+            </div>
+          </div>
+          
+          <div className="flex justify-center">
             <Link href="/get-started-intro">
-              <Button size="lg" className="bg-[#A8FF9E] text-black hover:bg-[#8BFF7A] px-12 py-6 text-xl font-semibold shadow-lg">
-                Get Started NOW
+              <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-12 py-6 text-xl font-semibold shadow-lg">
+                Get Started
               </Button>
             </Link>
-          </div>
-          
-          <div className="mb-12">
-            <div className="aspect-video w-full max-w-4xl mx-auto bg-gray-100 rounded-lg flex items-center justify-center">
-              <p className="text-gray-500">Wispr Flow Video Embed</p>
-            </div>
           </div>
         </div>
       </div>
