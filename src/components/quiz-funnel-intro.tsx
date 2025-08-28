@@ -61,9 +61,9 @@ export default function QuizFunnelIntro() {
         return;
       }
       
-      // Send data to webhook (you can update this URL)
+      // Send data to webhook
       try {
-        await fetch("https://hook.eu2.make.com/xq1dvs5e98p1w88grh58skodmco254tx", {
+        await fetch("https://hook.eu2.make.com/cj5346r20ujxqqvzqf8ba6uqiwq3zmse", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -266,6 +266,10 @@ export default function QuizFunnelIntro() {
                 <div>
                   <Label className="text-sm font-medium text-gray-700">First name *</Label>
                   <Input 
+                    id="firstName"
+                    name="firstName"
+                    type="text"
+                    autoComplete="given-name"
                     value={formData.firstName} 
                     onChange={e => setFormData({ ...formData, firstName: e.target.value })}
                     onKeyPress={handleKeyPress}
@@ -275,6 +279,10 @@ export default function QuizFunnelIntro() {
                 <div>
                   <Label className="text-sm font-medium text-gray-700">Last name *</Label>
                   <Input 
+                    id="lastName"
+                    name="lastName"
+                    type="text"
+                    autoComplete="family-name"
                     value={formData.lastName} 
                     onChange={e => setFormData({ ...formData, lastName: e.target.value })}
                     onKeyPress={handleKeyPress}
@@ -286,6 +294,10 @@ export default function QuizFunnelIntro() {
               <div>
                 <Label className="text-sm font-medium text-gray-700">Email *</Label>
                 <Input 
+                  id="email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
                   value={formData.email} 
                   onChange={e => setFormData({ ...formData, email: e.target.value })}
                   onKeyPress={handleKeyPress}
@@ -296,6 +308,10 @@ export default function QuizFunnelIntro() {
               <div>
                 <Label className="text-sm font-medium text-gray-700">Phone number *</Label>
                 <Input 
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  autoComplete="tel"
                   value={formData.phone} 
                   onChange={e => setFormData({ ...formData, phone: e.target.value })}
                   onKeyPress={handleKeyPress}
