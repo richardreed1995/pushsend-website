@@ -66,10 +66,13 @@ export async function POST(request: NextRequest) {
           ]
         };
 
-        await fetch(process.env.SLACK_WEBHOOK_URL, {
+        // Don't await - send in background
+        fetch(process.env.SLACK_WEBHOOK_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(slackMessage),
+        }).catch(slackError => {
+          console.error("Slack notification failed:", slackError);
         });
       } catch (slackError) {
         console.error("Slack notification failed:", slackError);
@@ -79,7 +82,8 @@ export async function POST(request: NextRequest) {
     // Send to Google Sheets (you'll need to set up a Google Apps Script)
     if (process.env.GOOGLE_SHEETS_WEBHOOK_URL) {
       try {
-        await fetch(process.env.GOOGLE_SHEETS_WEBHOOK_URL, {
+        // Don't await - send in background
+        fetch(process.env.GOOGLE_SHEETS_WEBHOOK_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -95,12 +99,15 @@ export async function POST(request: NextRequest) {
             timestamp: data.timestamp || Date.now(),
             sessionId: data.sessionId
           }),
+        }).catch(sheetsError => {
+          console.error("Google Sheets update failed:", sheetsError);
         });
       } catch (sheetsError) {
         console.error("Google Sheets update failed:", sheetsError);
       }
     }
 
+    // Return success immediately - don't wait for integrations
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Form submission error:", error);

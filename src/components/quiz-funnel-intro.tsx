@@ -119,29 +119,24 @@ export default function QuizFunnelIntro() {
       
       console.log("Submitting form with data:", webhookData);
       
+      // Send form data to our API route (which handles Slack and Google Sheets)
       try {
-        const response = await fetch("/api/submit-form", {
+        // Don't wait for the API response - redirect immediately
+        fetch("/api/submit-form", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            ...webhookData,
-            submittedAt: new Date().toISOString(),
-            userAgent: navigator.userAgent,
-            timestamp: Date.now(),
-            sessionId: Math.random().toString(36).substring(7)
-          }),
+          body: JSON.stringify(webhookData),
+        }).catch(apiError => {
+          console.error("API error (background):", apiError);
         });
         
-        if (!response.ok) {
-          console.error("API call failed:", response.status, response.statusText);
-        } else {
-          console.log("Form submitted successfully to API");
-        }
-      } catch (e) {
-        console.error("API error:", e);
+        console.log("Form submitted successfully - redirecting to success page");
+      } catch (apiError) {
+        console.error("API error:", apiError);
+        // Don't fail the form submission if API call fails
       }
       
-      // If qualified, go to success page
+      // Redirect immediately to success page
       router.push("/success");
     } finally {
       // Reset submitting flag
