@@ -35,8 +35,6 @@ export default function HeroSectionIntro() {
                   frameBorder="0" 
                   className="w-full h-full"
                   allowFullScreen={true} 
-                  mozallowfullscreen="true" 
-                  webkitallowfullscreen="true"
                   title="PushSend Lead Generation System"
                 />
               </div>
