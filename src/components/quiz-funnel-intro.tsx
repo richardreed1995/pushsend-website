@@ -62,43 +62,51 @@ export default function QuizFunnelIntro() {
       return;
     }
     
-    // Simple validation - check if all required fields have data
-    if (!formData.firstName?.trim() || !formData.lastName?.trim() || !formData.email?.trim() || !formData.phone?.trim()) {
-      setError("Please fill in all required fields");
-      return;
-    }
-    
-    // Validate email format
-    if (!validateEmail(formData.email)) {
-      setError("Please enter a valid email address");
-      return;
-    }
-    
-    // Check business logic fields
-    if (!formData.businessType || !formData.monthlyRevenue || !formData.hasFunds) {
-      setError("Please complete all steps of the form");
-      return;
-    }
-    
-    // Check qualification
-    if (!checkQualification()) {
-      router.push("/disqualified");
-      return;
-    }
-    
     // Set submitting flag
     setFormData(prev => ({ ...prev, isSubmitting: true }));
     
     try {
-      // Prepare webhook data with trimmed values
-      const webhookData = {
-        businessType: formData.businessType,
-        monthlyRevenue: formData.monthlyRevenue,
-        hasFunds: formData.hasFunds,
+      // Validate the final step (contact details)
+      if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone) {
+        setError("Please fill in all required fields");
+        return;
+      }
+      if (!validateEmail(formData.email)) {
+        setError("Please enter a valid email address");
+        return;
+      }
+      
+      // Additional validation to ensure all required fields are properly filled
+      if (!formData.businessType || !formData.monthlyRevenue || !formData.hasFunds) {
+        setError("Please complete all steps of the form");
+        return;
+      }
+      
+      // Check qualification before proceeding
+      if (!checkQualification()) {
+        router.push("/disqualified");
+        return;
+      }
+      
+      // Final validation - ensure we have complete and valid data
+      const trimmedData = {
         firstName: formData.firstName.trim(),
         lastName: formData.lastName.trim(),
         email: formData.email.trim(),
         phone: formData.phone.trim()
+      };
+      
+      if (!trimmedData.firstName || !trimmedData.lastName || !trimmedData.email || !trimmedData.phone) {
+        setError("Please fill in all required fields");
+        return;
+      }
+      
+      // Only send webhook if we have complete and valid data
+      const webhookData = {
+        businessType: formData.businessType,
+        monthlyRevenue: formData.monthlyRevenue,
+        hasFunds: formData.hasFunds,
+        ...trimmedData
       };
       
       // Final safety check - ensure no empty values
@@ -109,35 +117,32 @@ export default function QuizFunnelIntro() {
         return;
       }
       
-      console.log("Submitting form with complete data:", webhookData);
+      console.log("Submitting form with data:", webhookData);
       
-      // Send webhook only if we have complete data
-      const response = await fetch("https://hook.eu2.make.com/cj5346r20ujxqqvzqf8ba6uqiwq3zmse", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          formData: webhookData,
-          type: "intro-qualification",
-          completedAt: new Date().toISOString(),
-          userAgent: navigator.userAgent,
-          timestamp: Date.now(),
-          sessionId: Math.random().toString(36).substring(7)
-        }),
-      });
-      
-      if (!response.ok) {
-        console.error("Webhook failed:", response.status, response.statusText);
-        setError("There was an error submitting your form. Please try again.");
-        return;
-      } else {
-        console.log("Webhook sent successfully with complete data");
+      try {
+        const response = await fetch("/api/submit-form", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            ...webhookData,
+            submittedAt: new Date().toISOString(),
+            userAgent: navigator.userAgent,
+            timestamp: Date.now(),
+            sessionId: Math.random().toString(36).substring(7)
+          }),
+        });
+        
+        if (!response.ok) {
+          console.error("API call failed:", response.status, response.statusText);
+        } else {
+          console.log("Form submitted successfully to API");
+        }
+      } catch (e) {
+        console.error("API error:", e);
       }
       
-      // Go to success page
+      // If qualified, go to success page
       router.push("/success");
-    } catch (e) {
-      console.error("Webhook error:", e);
-      setError("There was an error submitting your form. Please try again.");
     } finally {
       // Reset submitting flag
       setFormData(prev => ({ ...prev, isSubmitting: false }));
@@ -150,10 +155,15 @@ export default function QuizFunnelIntro() {
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
-      e.preventDefault();
+      e.preventDefault(); // Prevent default form submission behavior
       
+      // Only allow Enter key submission on the final step
       if (step === 3) {
-        submitForm();
+        // Additional check to ensure we're not in the middle of typing
+        const target = e.target as HTMLInputElement;
+        if (target && target.value && target.value.trim()) {
+          submitForm();
+        }
       } else {
         next();
       }
@@ -385,16 +395,10 @@ export default function QuizFunnelIntro() {
                 />
               </div>
             </div>
-            
             {error && <p className="text-red-500 text-sm text-center mb-4">{error}</p>}
-            
             <div className="flex justify-center">
-              <Button 
-                className="w-full bg-black hover:bg-gray-800 text-white" 
-                onClick={submitForm}
-                disabled={formData.isSubmitting}
-              >
-                {formData.isSubmitting ? 'Submitting...' : 'Get Started'}
+              <Button className="w-full bg-black hover:bg-gray-800 text-white" onClick={submitForm}>
+                Get Started
               </Button>
             </div>
           </div>
