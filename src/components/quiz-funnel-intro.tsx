@@ -46,42 +46,64 @@ export default function QuizFunnelIntro() {
   async function next() {
     setError("");
     
-    // Only validate the final step (contact details)
-    if (step === 3) {
-      if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone) {
-        return setError("Please fill in all required fields");
-      }
-      if (!validateEmail(formData.email)) {
-        return setError("Please enter a valid email address");
-      }
-      
-      // Check qualification before proceeding
-      if (!checkQualification()) {
-        router.push("/disqualified");
-        return;
-      }
-      
-      // Send data to webhook
+    // Only advance to next step if not on the final step
+    if (step < 3) {
+      setStep((s) => s + 1);
+      return;
+    }
+  }
+
+  async function submitForm() {
+    setError("");
+    
+    // Validate the final step (contact details)
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone) {
+      return setError("Please fill in all required fields");
+    }
+    if (!validateEmail(formData.email)) {
+      return setError("Please enter a valid email address");
+    }
+    
+    // Additional validation to ensure all required fields are properly filled
+    if (!formData.businessType || !formData.monthlyRevenue || !formData.hasFunds) {
+      return setError("Please complete all steps of the form");
+    }
+    
+    // Check qualification before proceeding
+    if (!checkQualification()) {
+      router.push("/disqualified");
+      return;
+    }
+    
+    // Only send webhook if we have complete and valid data
+    if (formData.firstName.trim() && formData.lastName.trim() && formData.email.trim() && formData.phone.trim()) {
       try {
         await fetch("https://hook.eu2.make.com/cj5346r20ujxqqvzqf8ba6uqiwq3zmse", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            formData,
+            formData: {
+              businessType: formData.businessType,
+              monthlyRevenue: formData.monthlyRevenue,
+              hasFunds: formData.hasFunds,
+              firstName: formData.firstName.trim(),
+              lastName: formData.lastName.trim(),
+              email: formData.email.trim(),
+              phone: formData.phone.trim()
+            },
             type: "intro-qualification",
             completedAt: new Date().toISOString(),
+            userAgent: navigator.userAgent,
+            timestamp: Date.now()
           }),
         });
       } catch (e) {
         // Fail silently
       }
-      
-      // If qualified, go to success page
-      router.push("/success");
-      return;
     }
     
-    setStep((s) => s + 1);
+    // If qualified, go to success page
+    router.push("/success");
   }
   
   function prev() { 
@@ -90,7 +112,11 @@ export default function QuizFunnelIntro() {
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
-      next();
+      if (step === 3) {
+        submitForm();
+      } else {
+        next();
+      }
     }
   };
 
@@ -321,7 +347,7 @@ export default function QuizFunnelIntro() {
             </div>
             {error && <p className="text-red-500 text-sm text-center mb-4">{error}</p>}
             <div className="flex justify-center">
-              <Button className="w-full bg-black hover:bg-gray-800 text-white" onClick={next}>
+              <Button className="w-full bg-black hover:bg-gray-800 text-white" onClick={submitForm}>
                 Get Started
               </Button>
             </div>
