@@ -16,20 +16,30 @@ export default function HeroSectionIntro() {
           </div>
           
           <div className="mb-4 sm:mb-6 lg:mb-8">
-            <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl leading-tight">
-              We'll Set Up & Launch a Complete Outbound Lead Generation System for Your B2B Business in Just 30 Days.
+            <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-5xl leading-tight">
+              Get Qualified B2B Sales Conversations Delivered To Your CRM
             </h1>
           </div>
           <p className="text-base leading-6 sm:leading-8 text-muted-foreground mb-4 sm:mb-6 lg:mb-8 sm:text-lg lg:text-xl">
-            We build the system, contact 10,000 qualified prospects, and book meetings directly into your calendar without you lifting a finger.
+            We'll outreach to 10,000 of your perfect fit prospects with proven playbooks. All for a one-time fee.
           </p>
-          <p className="text-xs leading-5 sm:leading-8 text-muted-foreground mb-6 sm:mb-8 lg:mb-12 sm:text-sm lg:text-base italic">
-            Watch this video for all details & pricing, then schedule your call on the next page:
+          <p className="text-xs leading-4 sm:leading-5 text-muted-foreground mb-6 sm:mb-8 lg:mb-12 sm:text-sm lg:text-base">
+            See the presentation below for our process and pricing.
           </p>
           
           <div className="mb-6 sm:mb-8 lg:mb-12">
-            <div className="aspect-video w-full max-w-4xl mx-auto bg-gray-100 rounded-lg flex items-center justify-center">
-              <p className="text-gray-500">Wistia Video Embed</p>
+            <div className="relative w-full max-w-4xl mx-auto">
+              <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
+                <iframe 
+                  src="https://docs.google.com/presentation/d/e/2PACX-1vRcg5iYKzjOi5SjVzuDYdCaMbqH68Nte-D-bT-julWeSTp5CZ2n2xPcbIchNFxsmmgtcQRzeOOMvXx5/pubembed?start=false&loop=false&delayms=3000" 
+                  frameBorder="0" 
+                  className="w-full h-full"
+                  allowFullScreen={true} 
+                  mozallowfullscreen="true" 
+                  webkitallowfullscreen="true"
+                  title="PushSend Lead Generation System"
+                />
+              </div>
             </div>
           </div>
           
